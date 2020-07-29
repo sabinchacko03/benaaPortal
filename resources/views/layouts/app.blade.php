@@ -26,9 +26,9 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+                        <li><a href="#"><i class="fa fa-phone"></i> 80023622</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> sales@800benaa.com</a></li>
+                        <li><a href="#"><i class="fa fa-map-marker"></i> Dubai</a></li>
                     </ul>
                     <ul class="header-links pull-right">
                         <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
@@ -57,13 +57,14 @@
                         <!-- SEARCH BAR -->
                         <div class="col-md-6">
                             <div class="header-search">
-                                <form>
+                                <form method="GET" action="{{ url('search')}}">
+                                    <!--{{ csrf_field() }}-->
                                     <select class="input-select">
                                         <option value="0">All Categories</option>
                                         <option value="1">Category 01</option>
                                         <option value="1">Category 02</option>
                                     </select>
-                                    <input class="input" placeholder="Search here">
+                                    <input class="input" placeholder="Search here" type="text" name="searchKey" />
                                     <button class="search-btn">Search</button>
                                 </form>
                             </div>

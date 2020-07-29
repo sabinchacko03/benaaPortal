@@ -91,7 +91,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="./img/product01.png" alt="">
+                                        <img src="{{ asset('public/img/product01.png') }}" alt="">
                                         <div class="product-label">
                                             <span class="sale">-30%</span>
                                             <span class="new">NEW</span>
@@ -123,7 +123,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="./img/product02.png" alt="">
+                                        <img src="{{ asset('public/img/product02.png') }}" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -154,7 +154,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="./img/product03.png" alt="">
+                                        <img src="{{ asset('public/img/product03.png') }}" alt="">
                                         <div class="product-label">
                                             <span class="sale">-30%</span>
                                         </div>
@@ -180,7 +180,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="./img/product04.png" alt="">
+                                        <img src="{{ asset('public/img/product04.png') }}" alt="">
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Category</p>
