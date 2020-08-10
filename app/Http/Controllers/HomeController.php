@@ -13,7 +13,6 @@ class HomeController extends Controller {
 
     public function search(Request $request) {
         $key = $request->input('searchKey');
-//        $key = $url = $request->url();
         $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/search', [
                     'key' => $key,
         ]);
