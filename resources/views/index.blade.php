@@ -57,6 +57,9 @@
     <!-- /container -->
 </div>
 <!-- SECTION -->
+<div class="section" id="categoryDiv">
+    
+</div>
 
 <!-- SECTION -->
 <div class="section">
@@ -775,5 +778,6 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
+<script src="{{ asset('public/js/app.js') }}" defer></script>
 
 @endsection
