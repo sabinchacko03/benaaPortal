@@ -147,27 +147,39 @@
         </header>
 
         <!-- NAVIGATION -->
+        <!--        <nav id="navigation">
+                    <div class="container">
+                        <div id="responsive-nav">
+                            <ul class="main-nav nav navbar-nav">
+                                <li class="active"><a href="#">Home</a></li>                        
+                                @foreach($categories as $cat)        
+                                    <li><a href="#">{{ucfirst(strtolower($cat['Name']))}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </nav>        -->
+        <!-- /NAVIGATION -->
+
         <nav id="navigation">
-            <!-- container -->
             <div class="container">
-                <!-- responsive-nav -->
                 <div id="responsive-nav">
                     <ul class="main-nav nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>                        
-                        @foreach($categories as $cat)        
-                            <li><a href="#">{{ucfirst(strtolower($cat['Name']))}}</a></li>
-                        @endforeach
+                        <li class="active"><a href="#">Home</a></li>
+                        <!--<li><a href="#">Hot Deals</a></li>-->
+                        <li><a href="#">Categories</a></li>
+                        <!--<li><a href="#">Laptops</a></li>-->
+                        <!--<li><a href="#">Smartphones</a></li>-->
+                        <li><a href="#">Contact Us</a></li>
+                        <!--<li><a href="#">Accessories</a></li>-->
                     </ul>
                 </div>
-                <!-- /responsive-nav -->
             </div>
-            <!-- /container -->
-        </nav>        
-        <!-- /NAVIGATION -->
+        </nav>
 
         <!-- SECTION -->
         <!--<div class="section">-->
-            @yield('content')
+        @yield('content')
         <!--</div>-->
         <!-- NEWSLETTER -->
         <div id="newsletter" class="section">

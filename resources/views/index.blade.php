@@ -57,7 +57,7 @@
     <!-- /container -->
 </div>
 <!-- SECTION -->
-<div class="section" id="categoryDiv">
+<div className="section" id="categoryDiv">
     
 </div>
 

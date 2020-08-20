@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-class Category extends Component {
+class Category extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,7 +10,7 @@ class Category extends Component {
     }
 
     componentDidMount() {
-        axios.get('benaaportal/api/categories').then(response => {
+        axios.get('api/categories').then(response => {
             this.setState({
                 projects: response.data
             });
@@ -20,18 +20,35 @@ class Category extends Component {
     render() {
         const {projects} = this.state;
         return (
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="section-title">
-                                <h3 class="title">Categories</h3>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="section-title">
+                                <h3 className="title">Categories</h3>
                             </div>
-                            {projects}
-                            <ul className='list-group list-group-flush'>
+                            <div className='row'>
                                 {projects.map(project => (
-                                                <li>{project.id}</li>
-                                                        ))}
-                            </ul>
+                                                <div class="col-md-3">
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="public/img/product02.png" alt="" />
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <h3 class="product-name"><a>{project.Name}</a></h3>
+                                                            <div class="product-rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                        </div>                                                    
+                                                    </div>
+                                                </div>
+                                                        )
+                                            )
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
