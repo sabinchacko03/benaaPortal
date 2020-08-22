@@ -65928,6 +65928,8 @@ var Category = /*#__PURE__*/function (_React$Component) {
       }, projects.map(function (project) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           "class": "col-md-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "product/" + project.Id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           "class": "product"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -65939,7 +65941,7 @@ var Category = /*#__PURE__*/function (_React$Component) {
           "class": "product-body"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
           "class": "product-name"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, project.Name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, project.Name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           "class": "product-rating"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           "class": "fa fa-star"
@@ -65951,7 +65953,7 @@ var Category = /*#__PURE__*/function (_React$Component) {
           "class": "fa fa-star"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           "class": "fa fa-star-o"
-        })))));
+        }))))));
       })))));
     }
   }]);
@@ -66023,8 +66025,8 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp7.4\htdocs\benaaportal-live\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp7.4\htdocs\benaaportal-live\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp7.4\htdocs\benaa-portal\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp7.4\htdocs\benaa-portal\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

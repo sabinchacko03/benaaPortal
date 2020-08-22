@@ -29,21 +29,24 @@ class Category extends React.Component {
                             <div className='row'>
                                 {projects.map(project => (
                                                 <div class="col-md-3">
-                                                    <div class="product">
-                                                        <div class="product-img">
-                                                            <img src="public/img/product02.png" alt="" />
-                                                        </div>
-                                                        <div class="product-body">
-                                                            <h3 class="product-name"><a>{project.Name}</a></h3>
-                                                            <div class="product-rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
+                                                    <a href={"product/" + project.Id}>
+                                                        <div class="product">
+                                                            <div class="product-img">
+                                
+                                                                <img src="public/img/product02.png" alt="" />                                                            
                                                             </div>
-                                                        </div>                                                    
-                                                    </div>
+                                                            <div class="product-body">
+                                                                <h3 class="product-name">{project.Name}</h3>
+                                                                <div class="product-rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div>
+                                                            </div>                                                    
+                                                        </div>
+                                                    </a>
                                                 </div>
                                                         )
                                             )
