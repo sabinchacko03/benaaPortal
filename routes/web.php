@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index');
 Route::get('search', 'HomeController@search');
 Route::get('product/{category}', 'CategoryController@showSubcategories');
+Route::get('product/{category}/{sub_category}', 'CategoryController@showSubcategoryProducts');

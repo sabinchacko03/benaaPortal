@@ -22,5 +22,13 @@ class CategoryController extends Controller {
         $result = $response->json();
         return view('category', ['results' => $result['data'], 'category' => $category]);
     }
+    
+    public function showSubcategoryProducts($category, $subCategory) {
+        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/fetchProducts', [
+                    'subcategoryId' => $subCategory
+        ]);
+        $result = $response->json();
+        return view('sub-category', ['results' => $result['data'], 'category' => $subCategory]);
+    }
 
 }

@@ -28,7 +28,7 @@
                         <div class="row">
                             @foreach($results as $product)
                             <div class="col-md-3">
-                                <a href="{{URL::to('/')}}/product/{{$category}}/{{$product['Id']}}">
+                                <a href="">
                                     <div class="product">
                                         <div class="product-img">
                                             <img src="{{ asset('public/img/product01.png') }}" alt="">
