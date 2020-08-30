@@ -42,7 +42,7 @@
                             </a>
                             <div class="search search--location--mobile-header mobile-header__search">
                                 <div class="search__body">
-                                    <form class="search__form" action="">
+                                    <form class="search__form" action="{{ url('search')}}">
                                         <input class="search__input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
                                         <button class="search__button search__button--type--submit" type="submit">
                                             <svg width="20px" height="20px">
@@ -64,7 +64,7 @@
                                     <button class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
-                                                <use xlink:href="images/sprite.svg#search-20"></use>
+                                                <use xlink:href="{{asset('public/images/sprite.svg#search-20')}}"></use>
                                             </svg>
                                         </span>
                                     </button>
@@ -73,7 +73,7 @@
                                     <a href="wishlist.html" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
-                                                <use xlink:href="images/sprite.svg#heart-20"></use>
+                                                <use xlink:href="{{asset('public/images/sprite.svg#heart-20')}}"></use>
                                             </svg>
                                             <span class="indicator__value">0</span>
                                         </span>
@@ -83,7 +83,7 @@
                                     <a href="cart.html" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
-                                                <use xlink:href="images/sprite.svg#cart-20"></use>
+                                                <use xlink:href="{{asset('public/images/sprite.svg#cart-20')}}"></use>
                                             </svg>
                                             <span class="indicator__value">3</span>
                                         </span>
@@ -225,7 +225,7 @@
                                     <input class="search__input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
                                     <button class="search__button search__button--type--submit" type="submit">
                                         <svg width="20px" height="20px">
-                                            <use xlink:href="images/sprite.svg#search-20"></use>
+                                            <use xlink:href="{{asset('public/images/sprite.svg#search-20')}}"></use>
                                         </svg>
                                     </button>
                                     <div class="search__border"></div>
@@ -255,9 +255,9 @@
                                             <a class="nav-links__item-link" href="index.html">
                                                 <div class="nav-links__item-body">
                                                     Home
-                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
-                                                    </svg>
+<!--                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
+                                                        <use xlink:href="{{asset('public/images/categories/category-1.jpg')}}"></use>
+                                                    </svg>-->
                                                 </div>
                                             </a>
                                             <div class="nav-links__submenu nav-links__submenu--type--menu">
@@ -761,7 +761,7 @@
                                         <a href="wishlist.html" class="indicator__button">
                                             <span class="indicator__area">
                                                 <svg width="20px" height="20px">
-                                                    <use xlink:href="images/sprite.svg#heart-20"></use>
+                                                    <use xlink:href="{{asset('public/images/sprite.svg#heart-20')}}"></use>
                                                 </svg>
                                                 <span class="indicator__value">0</span>
                                             </span>
@@ -771,9 +771,9 @@
                                         <a href="cart.html" class="indicator__button">
                                             <span class="indicator__area">
                                                 <svg width="20px" height="20px">
-                                                    <use xlink:href="images/sprite.svg#cart-20"></use>
+                                                    <use xlink:href="{{asset('public/images/sprite.svg#cart-20')}}"></use>
                                                 </svg>
-                                                <span class="indicator__value">3</span>
+                                                <span class="indicator__value">0</span>
                                             </span>
                                         </a>
                                         <div class="indicator__dropdown">
@@ -1074,7 +1074,7 @@
                         <div class="totop__end">
                             <button type="button" class="totop__button">
                                 <svg width="13px" height="8px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-up-13x8"></use>
+                                    <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-up-13x8')}}"></use>
                                 </svg>
                             </button>
                         </div>
@@ -1100,7 +1100,7 @@
                 <div class="mobilemenu__title">Menu</div>
                 <button type="button" class="mobilemenu__close">
                     <svg width="20px" height="20px">
-                        <use xlink:href="images/sprite.svg#cross-20"></use>
+                        <use xlink:href="{{asset('public/images/sprite.svg#cross-20')}}"></use>
                     </svg>
                 </button>
             </div>
