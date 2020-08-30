@@ -3,299 +3,279 @@
 @section('title', 'Home')
 
 @section('content')
-<!-- SECTION -->
-<div class="section">
 
-    <!-- container -->
+<!-- .block-slideshow -->
+<div class="block-slideshow block-slideshow--layout--full block">
     <div class="container">
-        <!-- row -->
         <div class="row">
-            <!-- shop -->
-            <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="{{ asset('public/img/shop01.png') }}" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Laptop<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /shop -->
-
-            <!-- shop -->
-            <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="{{ asset('public/img/shop03.png') }}" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Accessories<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /shop -->
-
-            <!-- shop -->
-            <div class="col-md-4 col-xs-6">
-                <div class="shop">
-                    <div class="shop-img">
-                        <img src="{{ asset('public/img/shop02.png') }}" alt="">
-                    </div>
-                    <div class="shop-body">
-                        <h3>Cameras<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /shop -->
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- SECTION -->
-<div className="section" id="categoryDiv">
-    
-</div>
-
-
-<!-- HOT DEAL SECTION -->
-<div id="hot-deal" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="hot-deal">
-                    <ul class="hot-deal-countdown">
-                        <li>
-                            <div>
-                                <h3>02</h3>
-                                <span>Days</span>
+            <!--<div class="col-lg-3 d-none d-lg-block"></div>-->
+            <div class="col-12">
+                <div class="block-slideshow__body">
+                    <div class="owl-carousel">
+                        <a class="block-slideshow__slide" href="">
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/banners/banner1.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slider1-mob.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-content">
+                                <div class="block-slideshow__slide-title">Big choice of<br>Plumbing products</div>
+                                <div class="block-slideshow__slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Etiam pharetra laoreet dui quis molestie.</div>
+                                <div class="block-slideshow__slide-button">
+                                    <span class="btn btn-primary btn-lg">Shop Now</span>
+                                </div>
                             </div>
-                        </li>
-                        <li>
-                            <div>
-                                <h3>10</h3>
-                                <span>Hours</span>
+                        </a>
+                        <a class="block-slideshow__slide" href="">
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/banners/banner2.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('images/slides/slide-2-mobile.jpg')"></div>
+                            <div class="block-slideshow__slide-content">
+                                <div class="block-slideshow__slide-title">Screwdrivers<br>Professional Tools</div>
+                                <div class="block-slideshow__slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Etiam pharetra laoreet dui quis molestie.</div>
+                                <div class="block-slideshow__slide-button">
+                                    <span class="btn btn-primary btn-lg">Shop Now</span>
+                                </div>
                             </div>
-                        </li>
-                        <li>
-                            <div>
-                                <h3>34</h3>
-                                <span>Mins</span>
+                        </a>
+                        <a class="block-slideshow__slide" href="">
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/banners/banner3.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('images/slides/slide-3-mobile.jpg')"></div>
+                            <div class="block-slideshow__slide-content">
+                                <div class="block-slideshow__slide-title">One more<br>Unique header</div>
+                                <div class="block-slideshow__slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Etiam pharetra laoreet dui quis molestie.</div>
+                                <div class="block-slideshow__slide-button">
+                                    <span class="btn btn-primary btn-lg">Shop Now</span>
+                                </div>
                             </div>
-                        </li>
-                        <li>
-                            <div>
-                                <h3>60</h3>
-                                <span>Secs</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <h2 class="text-uppercase">hot deal this week</h2>
-                    <p>New Collection Up to 50% OFF</p>
-                    <a class="primary-btn cta-btn" href="#">Shop now</a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- /row -->
     </div>
-    <!-- /container -->
 </div>
-<!-- /HOT DEAL SECTION -->
-
-<!-- SECTION -->
-<div class="section">
-    <!-- container -->
+<!-- .block-slideshow / end -->
+<!-- .block-features -->
+<div class="block block-features block-features--layout--classic">
     <div class="container">
-        <!-- row -->
-        <div class="row">
-
-            <!-- section title -->
-            <div class="col-md-12">
-                <div class="section-title">
-                    <h3 class="title">New Products</h3>
-                    <div class="section-nav">
-                        <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-                        </ul>
-                    </div>
+        <div class="block-features__list">
+            <div class="block-features__item">
+                <div class="block-features__icon">
+                    <svg width="48px" height="48px">
+                    <use xlink:href="images/sprite.svg#fi-free-delivery-48"></use>
+                    </svg>
+                </div>
+                <div class="block-features__content">
+                    <div class="block-features__title">Free Shipping</div>
+                    <div class="block-features__subtitle">For orders from $50</div>
                 </div>
             </div>
-            <!-- /section title -->
+            <div class="block-features__divider"></div>
+            <div class="block-features__item">
+                <div class="block-features__icon">
+                    <svg width="48px" height="48px">
+                    <use xlink:href="images/sprite.svg#fi-24-hours-48"></use>
+                    </svg>
+                </div>
+                <div class="block-features__content">
+                    <div class="block-features__title">Support 24/7</div>
+                    <div class="block-features__subtitle">Call us anytime</div>
+                </div>
+            </div>
+            <div class="block-features__divider"></div>
+            <div class="block-features__item">
+                <div class="block-features__icon">
+                    <svg width="48px" height="48px">
+                    <use xlink:href="images/sprite.svg#fi-payment-security-48"></use>
+                    </svg>
+                </div>
+                <div class="block-features__content">
+                    <div class="block-features__title">100% Safety</div>
+                    <div class="block-features__subtitle">Only secure payments</div>
+                </div>
+            </div>
+            <div class="block-features__divider"></div>
+            <div class="block-features__item">
+                <div class="block-features__icon">
+                    <svg width="48px" height="48px">
+                    <use xlink:href="images/sprite.svg#fi-tag-48"></use>
+                    </svg>
+                </div>
+                <div class="block-features__content">
+                    <div class="block-features__title">Hot Offers</div>
+                    <div class="block-features__subtitle">Discounts up to 90%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- .block-features / end -->
+<!-- .block-products-carousel -->
 
-            <!-- Products tab & slick -->
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="products-tabs">
-                        <!-- tab -->
-                        <div id="tab1" class="tab-pane active">
-                            <div class="products-slick" data-nav="#slick-nav-1">
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{ asset('public/img/product01.png') }}" alt="">
-                                        <div class="product-label">
-                                            <span class="sale">-30%</span>
-                                            <span class="new">NEW</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="product-btns">
-                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
+<!-- .block-products-carousel / end -->
+<!-- .block-banner -->
 
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{ asset('public/img/product02.png') }}" alt="">
-                                        <div class="product-label">
-                                            <span class="new">NEW</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <div class="product-btns">
-                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{ asset('public/img/product03.png') }}" alt="">
-                                        <div class="product-label">
-                                            <span class="sale">-30%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                        <div class="product-rating">
-                                        </div>
-                                        <div class="product-btns">
-                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{ asset('public/img/product04.png') }}" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="product-btns">
-                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="./img/product05.png" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="product-btns">
-                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-                            </div>
-                            <div id="slick-nav-1" class="products-slick-nav"></div>
+<!-- .block-banner / end -->
+<!-- .block-categories -->
+<div class="block block--highlighted block-categories block-categories--layout--classic">
+    <div class="container">
+        <div class="block-header">
+            <h3 class="block-header__title">Popular Categories</h3>
+            <div class="block-header__divider"></div>
+        </div>
+        <div class="block-categories__list" id="categoryDiv">
+            <div class="block-categories__item category-card category-card--layout--classic">
+                <div class="category-card__body">
+                    <div class="category-card__image">
+                        <a href=""><img src="images/categories/category-1.jpg" alt=""></a>
+                    </div>
+                    <div class="category-card__content">
+                        <div class="category-card__name">
+                            <a href="">Power Tools</a>
                         </div>
-                        <!-- /tab -->
+                        <ul class="category-card__links">
+                            <li><a href="">Screwdrivers</a></li>
+                            <li><a href="">Milling Cutters</a></li>
+                            <li><a href="">Sanding Machines</a></li>
+                            <li><a href="">Wrenches</a></li>
+                            <li><a href="">Drills</a></li>
+                        </ul>
+                        <div class="category-card__all">
+                            <a href="">Show All</a>
+                        </div>
+                        <div class="category-card__products">
+                            572 Products
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Products tab & slick -->
+            <div class="block-categories__item category-card category-card--layout--classic">
+                <div class="category-card__body">
+                    <div class="category-card__image">
+                        <a href=""><img src="images/categories/category-2.jpg" alt=""></a>
+                    </div>
+                    <div class="category-card__content">
+                        <div class="category-card__name">
+                            <a href="">Hand Tools</a>
+                        </div>
+                        <ul class="category-card__links">
+                            <li><a href="">Screwdrivers</a></li>
+                            <li><a href="">Hammers</a></li>
+                            <li><a href="">Spanners</a></li>
+                            <li><a href="">Handsaws</a></li>
+                            <li><a href="">Paint Tools</a></li>
+                        </ul>
+                        <div class="category-card__all">
+                            <a href="">Show All</a>
+                        </div>
+                        <div class="category-card__products">
+                            134 Products
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-categories__item category-card category-card--layout--classic">
+                <div class="category-card__body">
+                    <div class="category-card__image">
+                        <a href=""><img src="images/categories/category-4.jpg" alt=""></a>
+                    </div>
+                    <div class="category-card__content">
+                        <div class="category-card__name">
+                            <a href="">Machine Tools</a>
+                        </div>
+                        <ul class="category-card__links">
+                            <li><a href="">Lathes</a></li>
+                            <li><a href="">Milling Machines</a></li>
+                            <li><a href="">Grinding Machines</a></li>
+                            <li><a href="">CNC Machines</a></li>
+                            <li><a href="">Sharpening Machines</a></li>
+                        </ul>
+                        <div class="category-card__all">
+                            <a href="">Show All</a>
+                        </div>
+                        <div class="category-card__products">
+                            301 Products
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-categories__item category-card category-card--layout--classic">
+                <div class="category-card__body">
+                    <div class="category-card__image">
+                        <a href=""><img src="images/categories/category-3.jpg" alt=""></a>
+                    </div>
+                    <div class="category-card__content">
+                        <div class="category-card__name">
+                            <a href="">Power Machinery</a>
+                        </div>
+                        <ul class="category-card__links">
+                            <li><a href="">Generators</a></li>
+                            <li><a href="">Compressors</a></li>
+                            <li><a href="">Winches</a></li>
+                            <li><a href="">Plasma Cutting</a></li>
+                            <li><a href="">Electric Motors</a></li>
+                        </ul>
+                        <div class="category-card__all">
+                            <a href="">Show All</a>
+                        </div>
+                        <div class="category-card__products">
+                            79 Products
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-categories__item category-card category-card--layout--classic">
+                <div class="category-card__body">
+                    <div class="category-card__image">
+                        <a href=""><img src="images/categories/category-5.jpg" alt=""></a>
+                    </div>
+                    <div class="category-card__content">
+                        <div class="category-card__name">
+                            <a href="">Measurement</a>
+                        </div>
+                        <ul class="category-card__links">
+                            <li><a href="">Tape Measure</a></li>
+                            <li><a href="">Theodolites</a></li>
+                            <li><a href="">Thermal Imagers</a></li>
+                            <li><a href="">Calipers</a></li>
+                            <li><a href="">Levels</a></li>
+                        </ul>
+                        <div class="category-card__all">
+                            <a href="">Show All</a>
+                        </div>
+                        <div class="category-card__products">
+                            366 Products
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-categories__item category-card category-card--layout--classic">
+                <div class="category-card__body">
+                    <div class="category-card__image">
+                        <a href=""><img src="images/categories/category-6.jpg" alt=""></a>
+                    </div>
+                    <div class="category-card__content">
+                        <div class="category-card__name">
+                            <a href="">Clothes and PPE</a>
+                        </div>
+                        <ul class="category-card__links">
+                            <li><a href="">Winter Workwear</a></li>
+                            <li><a href="">Summer Workwear</a></li>
+                            <li><a href="">Helmets</a></li>
+                            <li><a href="">Belts and Bags</a></li>
+                            <li><a href="">Work Shoes</a></li>
+                        </ul>
+                        <div class="category-card__all">
+                            <a href="">Show All</a>
+                        </div>
+                        <div class="category-card__products">
+                            81 Products
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /row -->
     </div>
-    <!-- /container -->
 </div>
-<!-- /SECTION -->
+<!-- .block-categories / end -->
+
 
 <script src="{{ asset('public/js/app.js') }}" defer></script>
 

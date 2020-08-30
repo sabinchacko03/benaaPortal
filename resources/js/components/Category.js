@@ -5,56 +5,49 @@ class Category extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            projects: []
+            categories: []
         };
     }
 
     componentDidMount() {
         axios.get('api/categories').then(response => {
             this.setState({
-                projects: response.data
+                categories: response.data
             });
         });
     }
 
     render() {
-        const {projects} = this.state;
+        const {categories} = this.state;
         return (
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="section-title">
-                                <h3 className="title">Categories</h3>
+                categories.map(category => (
+                    <div class="block-categories__item category-card category-card--layout--classic">
+                        <div class="category-card__body">
+                            <div class="category-card__image">
+                                <a href=""><img src="public/images/category.jpg" alt="" /></a>
                             </div>
-                            <div className='row'>
-                                {projects.map(project => (
-                                                <div class="col-md-3">
-                                                    <a href={"product/" + project.Id}>
-                                                        <div class="product">
-                                                            <div class="product-img">
-                                
-                                                                <img src="public/img/product02.png" alt="" />                                                            
-                                                            </div>
-                                                            <div class="product-body">
-                                                                <h3 class="product-name">{project.Name}</h3>
-                                                                <div class="product-rating">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star-o"></i>
-                                                                </div>
-                                                            </div>                                                    
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                        )
-                                            )
-                                }
+                            <div class="category-card__content">
+                                <div class="category-card__name">
+                                    <a href="">{category.Name}</a>
+                                </div>
+                                <ul class="category-card__links">
+                                    <li><a href="">Screwdrivers</a></li>
+                                    <li><a href="">Milling Cutters</a></li>
+                                    <li><a href="">Sanding Machines</a></li>
+                                    <li><a href="">Wrenches</a></li>
+                                    <li><a href="">Drills</a></li>
+                                </ul>
+                                <div class="category-card__all">
+                                    <a href="">Show All</a>
+                                </div>
+                                <div class="category-card__products">
+                                    572 Products
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                                        )
+                            )                    
                 );
     }
 }
