@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="format-detection" content="telephone=no">
-        <title>Stroyka</title>
+        <title>800Benaa</title>
         <link rel="icon" type="image/png" href="{{asset('public/images/favicon.png')}}">
         <!-- fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
@@ -32,26 +32,26 @@
                         <div class="mobile-header__body">
                             <button class="mobile-header__menu-button">
                                 <svg width="18px" height="14px">
-                                    <use xlink:href="images/sprite.svg#menu-18x14"></use>
+                                    <use xlink:href="{{asset('public/images/sprite.svg#menu-18x14')}}"></use>
                                 </svg>
                             </button>
-                            <a class="mobile-header__logo" href="index.html">
+                            <a class="mobile-header__logo" href="<?= URL::to('/') ?>">
                                 <!-- mobile-logo -->
                                 <img src="{{asset('public/images/Benaa_Logo.png')}}" alt="800Benaa" />
                                 <!-- mobile-logo / end -->
                             </a>
                             <div class="search search--location--mobile-header mobile-header__search">
                                 <div class="search__body">
-                                    <form class="search__form" action="{{ url('search')}}">
-                                        <input class="search__input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
+                                    <form class="search__form" action="{{ url('search')}}" method="GET">
+                                        <input class="search__input" name="searchKey" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
                                         <button class="search__button search__button--type--submit" type="submit">
                                             <svg width="20px" height="20px">
-                                                <use xlink:href="images/sprite.svg#search-20"></use>
+                                                <use xlink:href="{{asset('public/images/sprite.svg#search-20')}}"></use>
                                             </svg>
                                         </button>
                                         <button class="search__button search__button--type--close" type="button">
                                             <svg width="20px" height="20px">
-                                                <use xlink:href="images/sprite.svg#cross-20"></use>
+                                                <use xlink:href="{{asset('public/images/sprite.svg#cross-20')}}"></use>
                                             </svg>
                                         </button>
                                         <div class="search__border"></div>
@@ -196,7 +196,7 @@
                 <!-- .topbar / end -->
                 <div class="site-header__middle container">
                     <div class="site-header__logo">
-                        <a href="index.html">
+                        <a href="<?= URL::to('/') ?>">
                             <!-- logo -->
                             <img src="{{asset('public/images/Benaa_Logo.png')}}" alt="800Benaa" />
                             <!-- logo / end -->
@@ -205,24 +205,9 @@
                     <div class="site-header__search">
                         <div class="search search--location--header ">
                             <div class="search__body">
-                                <form class="search__form" action="">
-                                    <select class="search__categories" aria-label="Category">
-                                        <option value="all">All Categories</option>
-                                        <option>Instruments</option>
-                                        <option>&nbsp;&nbsp;&nbsp;&nbsp;Power Tools</option>
-                                        <option>&nbsp;&nbsp;&nbsp;&nbsp;Hand Tools</option>
-                                        <option>&nbsp;&nbsp;&nbsp;&nbsp;Machine Tools</option>
-                                        <option>&nbsp;&nbsp;&nbsp;&nbsp;Power Machinery</option>
-                                        <option>&nbsp;&nbsp;&nbsp;&nbsp;Measurement</option>
-                                        <option>&nbsp;&nbsp;&nbsp;&nbsp;Clothes and PPE</option>
-                                        <option>Electronics</option>
-                                        <option>Computers</option>
-                                        <option>Automotive</option>
-                                        <option>Furniture & Appliances</option>
-                                        <option>Music & Books</option>
-                                        <option>Health & Beauty</option>
-                                    </select>
-                                    <input class="search__input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
+                                <form class="search__form" action="{{ url('search')}}" method="GET">
+                                    <div id="categoryList"></div>
+                                    <input class="search__input" name="searchKey" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
                                     <button class="search__button search__button--type--submit" type="submit">
                                         <svg width="20px" height="20px">
                                             <use xlink:href="{{asset('public/images/sprite.svg#search-20')}}"></use>
@@ -251,66 +236,19 @@
                                 <!-- .nav-links -->
                                 <div class="nav-panel__nav-links nav-links">
                                     <ul class="nav-links__list">
-                                        <li class="nav-links__item  nav-links__item--has-submenu ">
-                                            <a class="nav-links__item-link" href="index.html">
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/') ?>">
                                                 <div class="nav-links__item-body">
                                                     Home
-<!--                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="{{asset('public/images/categories/category-1.jpg')}}"></use>
-                                                    </svg>-->
                                                 </div>
-                                            </a>
-                                            <div class="nav-links__submenu nav-links__submenu--type--menu">
-                                                <!-- .menu -->
-                                                <div class="menu menu--layout--classic ">
-                                                    <div class="menu__submenus-container"></div>
-                                                    <ul class="menu__list">
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="index.html">
-                                                                Home 1 Slideshow
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="index-2.html">
-                                                                Home 2 Slideshow
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="index-3.html">
-                                                                Home 1 Finder
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="index-4.html">
-                                                                Home 2 Finder
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="offcanvas-cart.html">
-                                                                Offcanvas Cart
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <!-- .menu / end -->
-                                            </div>
+                                            </a>                                            
                                         </li>
                                         <li class="nav-links__item  nav-links__item--has-submenu ">
                                             <a class="nav-links__item-link" href="">
                                                 <div class="nav-links__item-body">
-                                                    Megamenu
+                                                    Categories
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
+                                                        <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-9x6')}}"></use>
                                                     </svg>
                                                 </div>
                                             </a>
@@ -373,7 +311,7 @@
                                                 <!-- .megamenu / end -->
                                             </div>
                                         </li>
-                                        <li class="nav-links__item  nav-links__item--has-submenu ">
+                                        <li class="nav-links__item">
                                             <a class="nav-links__item-link" href="shop-grid-3-columns-sidebar.html">
                                                 <div class="nav-links__item-body">
                                                     Shop
@@ -381,159 +319,7 @@
                                                         <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
                                                     </svg>
                                                 </div>
-                                            </a>
-                                            <div class="nav-links__submenu nav-links__submenu--type--menu">
-                                                <!-- .menu -->
-                                                <div class="menu menu--layout--classic ">
-                                                    <div class="menu__submenus-container"></div>
-                                                    <ul class="menu__list">
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="shop-grid-3-columns-sidebar.html">
-                                                                Shop Grid
-                                                                <svg class="menu__item-arrow" width="6px" height="9px">
-                                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                                </svg>
-                                                            </a>
-                                                            <div class="menu__submenu">
-                                                                <!-- .menu -->
-                                                                <div class="menu menu--layout--classic ">
-                                                                    <div class="menu__submenus-container"></div>
-                                                                    <ul class="menu__list">
-                                                                        <li class="menu__item">
-                                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                                            <div class="menu__item-submenu-offset"></div>
-                                                                            <a class="menu__item-link" href="shop-grid-3-columns-sidebar.html">
-                                                                                3 Columns Sidebar
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu__item">
-                                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                                            <div class="menu__item-submenu-offset"></div>
-                                                                            <a class="menu__item-link" href="shop-grid-4-columns-full.html">
-                                                                                4 Columns Full
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu__item">
-                                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                                            <div class="menu__item-submenu-offset"></div>
-                                                                            <a class="menu__item-link" href="shop-grid-5-columns-full.html">
-                                                                                5 Columns Full
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                                <!-- .menu / end -->
-                                                            </div>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="shop-list.html">
-                                                                Shop List
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="shop-right-sidebar.html">
-                                                                Shop Right Sidebar
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="product.html">
-                                                                Product
-                                                                <svg class="menu__item-arrow" width="6px" height="9px">
-                                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                                </svg>
-                                                            </a>
-                                                            <div class="menu__submenu">
-                                                                <!-- .menu -->
-                                                                <div class="menu menu--layout--classic ">
-                                                                    <div class="menu__submenus-container"></div>
-                                                                    <ul class="menu__list">
-                                                                        <li class="menu__item">
-                                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                                            <div class="menu__item-submenu-offset"></div>
-                                                                            <a class="menu__item-link" href="product.html">
-                                                                                Product
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu__item">
-                                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                                            <div class="menu__item-submenu-offset"></div>
-                                                                            <a class="menu__item-link" href="product-alt.html">
-                                                                                Product Alt
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu__item">
-                                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                                            <div class="menu__item-submenu-offset"></div>
-                                                                            <a class="menu__item-link" href="product-sidebar.html">
-                                                                                Product Sidebar
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                                <!-- .menu / end -->
-                                                            </div>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="cart.html">
-                                                                Cart
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="cart-empty.html">
-                                                                Cart Empty
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="checkout.html">
-                                                                Checkout
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="order-success.html">
-                                                                Order Success
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="wishlist.html">
-                                                                Wishlist
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="compare.html">
-                                                                Compare
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div>
-                                                            <a class="menu__item-link" href="track-order.html">
-                                                                Track Order
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <!-- .menu / end -->
-                                            </div>
+                                            </a>                                           
                                         </li>
                                         <li class="nav-links__item  nav-links__item--has-submenu ">
                                             <a class="nav-links__item-link" href="account-login.html">
@@ -1108,49 +894,15 @@
                 <ul class="mobile-links mobile-links--level--0" data-collapse data-collapse-opened-class="mobile-links__item--open">
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
-                            <a href="index.html" class="mobile-links__item-link">Home</a>
-                            <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mobile-links__item-sub-links" data-collapse-content>
-                            <ul class="mobile-links mobile-links--level--1">
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="index.html" class="mobile-links__item-link">Home 1</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="index-2.html" class="mobile-links__item-link">Home 2</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="index-3.html" class="mobile-links__item-link">Home 1 Finder</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="index-4.html" class="mobile-links__item-link">Home 2 Finder</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="offcanvas-cart.html" class="mobile-links__item-link">Offcanvas Cart</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                            <a href="<?= URL::to('/') ?>" class="mobile-links__item-link">Home</a>
+                        </div>                        
                     </li>
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
                             <a href="" class="mobile-links__item-link">Categories</a>
                             <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
                                 <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+                                    <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
                                 </svg>
                             </button>
                         </div>
@@ -1161,7 +913,7 @@
                                         <a href="" class="mobile-links__item-link">Power Tools</a>
                                         <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
                                             <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+                                                <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
                                             </svg>
                                         </button>
                                     </div>
@@ -1195,7 +947,7 @@
                                         <a href="" class="mobile-links__item-link">Machine Tools</a>
                                         <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
                                             <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+                                                <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
                                             </svg>
                                         </button>
                                     </div>
@@ -1240,126 +992,14 @@
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
                             <a href="shop-grid-3-columns-sidebar.html" class="mobile-links__item-link">Shop</a>
-                            <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mobile-links__item-sub-links" data-collapse-content>
-                            <ul class="mobile-links mobile-links--level--1">
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="shop-grid-3-columns-sidebar.html" class="mobile-links__item-link">Shop Grid</a>
-                                        <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                            <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="mobile-links__item-sub-links" data-collapse-content>
-                                        <ul class="mobile-links mobile-links--level--2">
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="shop-grid-3-columns-sidebar.html" class="mobile-links__item-link">3 Columns Sidebar</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="shop-grid-4-columns-full.html" class="mobile-links__item-link">4 Columns Full</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="shop-grid-5-columns-full.html" class="mobile-links__item-link">5 Columns Full</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="shop-list.html" class="mobile-links__item-link">Shop List</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="shop-right-sidebar.html" class="mobile-links__item-link">Shop Right Sidebar</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="product.html" class="mobile-links__item-link">Product</a>
-                                        <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                            <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="mobile-links__item-sub-links" data-collapse-content>
-                                        <ul class="mobile-links mobile-links--level--2">
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="product.html" class="mobile-links__item-link">Product</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="product-alt.html" class="mobile-links__item-link">Product Alt</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="product-sidebar.html" class="mobile-links__item-link">Product Sidebar</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="cart.html" class="mobile-links__item-link">Cart</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="cart-empty.html" class="mobile-links__item-link">Cart Empty</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="checkout.html" class="mobile-links__item-link">Checkout</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="order-success.html" class="mobile-links__item-link">Order Success</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="wishlist.html" class="mobile-links__item-link">Wishlist</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="compare.html" class="mobile-links__item-link">Compare</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="track-order.html" class="mobile-links__item-link">Track Order</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        </div>                        
                     </li>
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
                             <a href="account-login.html" class="mobile-links__item-link">Account</a>
                             <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
                                 <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+                                    <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
                                 </svg>
                             </button>
                         </div>
@@ -1411,174 +1051,8 @@
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
                             <a href="blog-classic.html" class="mobile-links__item-link">Blog</a>
-                            <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mobile-links__item-sub-links" data-collapse-content>
-                            <ul class="mobile-links mobile-links--level--1">
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="blog-classic.html" class="mobile-links__item-link">Blog Classic</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="blog-grid.html" class="mobile-links__item-link">Blog Grid</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="blog-list.html" class="mobile-links__item-link">Blog List</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="blog-left-sidebar.html" class="mobile-links__item-link">Blog Left Sidebar</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="post.html" class="mobile-links__item-link">Post Page</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="post-without-sidebar.html" class="mobile-links__item-link">Post Without Sidebar</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="mobile-links__item" data-collapse-item>
-                        <div class="mobile-links__item-title">
-                            <a href="" class="mobile-links__item-link">Pages</a>
-                            <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mobile-links__item-sub-links" data-collapse-content>
-                            <ul class="mobile-links mobile-links--level--1">
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="about-us.html" class="mobile-links__item-link">About Us</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="contact-us.html" class="mobile-links__item-link">Contact Us</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="contact-us-alt.html" class="mobile-links__item-link">Contact Us Alt</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="404.html" class="mobile-links__item-link">404</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="terms-and-conditions.html" class="mobile-links__item-link">Terms And Conditions</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="faq.html" class="mobile-links__item-link">FAQ</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="components.html" class="mobile-links__item-link">Components</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="typography.html" class="mobile-links__item-link">Typography</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="mobile-links__item" data-collapse-item>
-                        <div class="mobile-links__item-title">
-                            <a data-collapse-trigger class="mobile-links__item-link">Currency</a>
-                            <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mobile-links__item-sub-links" data-collapse-content>
-                            <ul class="mobile-links mobile-links--level--1">
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">€ Euro</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">£ Pound Sterling</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">$ US Dollar</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">₽ Russian Ruble</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="mobile-links__item" data-collapse-item>
-                        <div class="mobile-links__item-title">
-                            <a data-collapse-trigger class="mobile-links__item-link">Language</a>
-                            <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mobile-links__item-sub-links" data-collapse-content>
-                            <ul class="mobile-links mobile-links--level--1">
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">English</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">French</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">German</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">Russian</a>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">Italian</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                        </div>                        
+                    </li>                                        
                 </ul>
             </div>
         </div>

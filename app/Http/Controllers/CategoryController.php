@@ -30,5 +30,8 @@ class CategoryController extends Controller {
         $result = $response->json();
         return view('sub-category', ['results' => $result['data'], 'category' => $subCategory]);
     }
-
+    
+    public function showProductDetails($product){
+        return view('product-details');
+    }
 }

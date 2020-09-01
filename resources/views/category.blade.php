@@ -3,56 +3,40 @@
 @section('title', '800Benaa | '.$category)
 
 @section('content')
-<div class="section">
-    <!-- container -->
+<div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
     <div class="container">
-        <!-- row -->
-        <div class="row">
-
-            <!-- section title -->
-            <div class="col-md-12">
-                <div class="section-title">
+        <div class="block block--highlighted block-categories block-categories--layout--classic">
+            <div class="container">
+                <div class="block-header">
+                    <h3 class="block-header__title">{{$category}}</h3>
+                    <div class="block-header__divider"></div>
+                </div>
+                <div class="block-categories__list">
                     @if(count($results) > 0)
-                    <h3 class="title">Products in '{{$category}}'</h3>
+                    @foreach($results as $subCategory)                        
+                    <div class="block-categories__item category-card category-card--layout--classic">
+                        <div class="category-card__body">
+                            <div class="category-card__image">
+                                <a href="{{URL::to('/')}}/product/{{$category}}/{{$subCategory['Id']}}"><img src="{{asset('public/images/categories/category-1.jpg')}}" alt=""></a>
+                            </div>
+                            <div class="category-card__content">
+                                <div class="category-card__name">
+                                    <a href="{{URL::to('/')}}/product/{{$category}}/{{$subCategory['Id']}}">{{$subCategory['Name']}}</a>
+                                </div>
+                                <div class="category-card__products">
+                                    572 Products
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                     @else
-                    <h3 class="title">No Products in '{{$category}}'</h3>
+                    <h2>No Products</h2>
                     @endif
                 </div>
             </div>
-            <!-- /section title -->
-
-            <!-- Products tab & slick -->
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="products-tabs">
-                        <div class="row">
-                            @foreach($results as $product)
-                            <div class="col-md-3">
-                                <a href="{{URL::to('/')}}/product/{{$category}}/{{$product['Id']}}">
-                                    <div class="product">
-                                        <div class="product-img">
-                                            <img src="{{ asset('public/img/product01.png') }}" alt="">
-                                            <div class="product-label">
-                                            </div>
-                                        </div>
-                                        <div class="product-body">
-                                            <p class="product-category">Sub Category</p>
-                                            <h3 class="product-name"><a href="#">{{$product['Name']}}</a></h3>
-
-                                        </div>
-                                    </div>    
-                                </a>
-                            </div>
-                            @endforeach
-                        </div>
-                        <div id="slick-nav-1" class="products-slick-nav"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Products tab & slick -->
-        </div>
-        <!-- /row -->
+        </div>            
     </div>
-    <!-- /container -->
+    <!-- /row -->
 </div>
 @endsection

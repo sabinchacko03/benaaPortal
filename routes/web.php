@@ -17,3 +17,4 @@ Route::get('/', 'HomeController@index');
 Route::get('search', 'HomeController@search');
 Route::get('product/{category}', 'CategoryController@showSubcategories');
 Route::get('product/{category}/{sub_category}', 'CategoryController@showSubcategoryProducts');
+Route::get('product/{category}/{sub_category}/{product}', 'CategoryController@showProductDetails');

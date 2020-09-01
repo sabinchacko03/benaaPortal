@@ -24,12 +24,12 @@ class Category extends React.Component {
                     <div class="block-categories__item category-card category-card--layout--classic">
                         <div class="category-card__body">
                             <div class="category-card__image">
-                                <a href=""><img src="public/images/category.jpg" alt="" /></a>
+                                <a href={"product/" + category.Id}><img src={category.Image_URL__c} alt="" /></a>
                             </div>
-                            <div class="category-card__content">
+                            <div class="category-card__content" style={{width: '53%'}}>
                                 <div class="category-card__name">
-                                    <a href="">{category.Name}</a>
-                                </div>
+                                    <a href={"product/" + category.Id}>{category.Name.toLowerCase()}</a>                                    
+                                </div>                                
                                 <ul class="category-card__links">
                                     <li><a href="">Screwdrivers</a></li>
                                     <li><a href="">Milling Cutters</a></li>
