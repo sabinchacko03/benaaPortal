@@ -17,7 +17,7 @@
                     <div class="block-categories__item category-card category-card--layout--classic">
                         <div class="category-card__body">
                             <div class="category-card__image">
-                                <a href="{{URL::to('/')}}/product/{{$category}}/{{$subCategory['Id']}}"><img src="{{asset('public/images/categories/category-1.jpg')}}" alt=""></a>
+                                <a href="{{URL::to('/')}}/product/{{$category}}/{{$subCategory['Id']}}"><img src="{{$subCategory['Image_URL__c']}}" alt=""></a>
                             </div>
                             <div class="category-card__content">
                                 <div class="category-card__name">

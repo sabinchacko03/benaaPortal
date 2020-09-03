@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import SubCategoryHome from './SubCategoryHome';
 
 class Category extends React.Component {
     constructor(props) {
@@ -21,26 +22,22 @@ class Category extends React.Component {
         const {categories} = this.state;
         return (
                 categories.map(category => (
-                    <div class="block-categories__item category-card category-card--layout--classic">
-                        <div class="category-card__body">
-                            <div class="category-card__image">
+                    <div className="block-categories__item category-card category-card--layout--classic">
+                        <div className="category-card__body">
+                            <div className="category-card__image">
                                 <a href={"product/" + category.Id}><img src={category.Image_URL__c} alt="" /></a>
                             </div>
-                            <div class="category-card__content" style={{width: '53%'}}>
-                                <div class="category-card__name">
-                                    <a href={"product/" + category.Id}>{category.Name.toLowerCase()}</a>                                    
-                                </div>                                
-                                <ul class="category-card__links">
-                                    <li><a href="">Screwdrivers</a></li>
-                                    <li><a href="">Milling Cutters</a></li>
-                                    <li><a href="">Sanding Machines</a></li>
-                                    <li><a href="">Wrenches</a></li>
-                                    <li><a href="">Drills</a></li>
+                            <div className="category-card__content" style={{width: '53%'}}>
+                                <div className="category-card__name">
+                                    <a href={"product/" + category.Id} style={{textTransform: 'capitalize'}}>{category.Name.toLowerCase()}</a>                                    
+                                </div>  
+                                <ul className="category-card__links">
+                                    <SubCategoryHome categories={category} />
                                 </ul>
-                                <div class="category-card__all">
-                                    <a href="">Show All</a>
+                                <div className="category-card__all">
+                                    <a href={"product/" + category.Id}>Show All</a>
                                 </div>
-                                <div class="category-card__products">
+                                <div className="category-card__products">
                                     572 Products
                                 </div>
                             </div>

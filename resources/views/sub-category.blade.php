@@ -27,13 +27,13 @@
                                     <div class="product-card__badge product-card__badge--new">New</div>
                                 </div>
                                 <div class="product-card__image product-image">
-                                    <a href="{{URL::to('/')}}/product/{{$category}}/{{$category}}/{{$product['Name']}}" class="product-image__body">
+                                    <a href="{{URL::to('/')}}/product/{{$category}}/{{$category}}/{{$product['Id']}}" class="product-image__body">
                                         <img class="product-image__img" src="{{$product['Product2']['Default_Image_URL__c']}}" alt="">
                                     </a>
                                 </div>
                                 <div class="product-card__info">
                                     <div class="product-card__name">
-                                        <a href="{{URL::to('/')}}/product/{{$category}}/{{$category}}/{{$product['Name']}}">{{$product['Name']}}</a>
+                                        <a href="{{URL::to('/')}}/product/{{$category}}/{{$category}}/{{$product['Id']}}">{{$product['Name']}}</a>
                                     </div>
                                     <div class="product-card__rating">
                                         <div class="product-card__rating-stars">

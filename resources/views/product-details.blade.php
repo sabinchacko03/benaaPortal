@@ -39,8 +39,8 @@
                             </button>
                             <div class="owl-carousel" id="product-image">
                                 <div class="product-image product-image--location--gallery">
-                                    <a href="images/products/product-16.jpg" data-width="700" data-height="700" class="product-image__body" target="_blank">
-                                        <img class="product-image__img" src="images/products/product-16.jpg" alt="">
+                                    <a href="{{$details['Product2']['Default_Image_URL__c']}}" data-width="700" data-height="700" class="product-image__body" target="_blank">
+                                        <img class="product-image__img" src="{{$details['Product2']['Default_Image_URL__c']}}" alt="">
                                     </a>
                                 </div>
                                 <div class="product-image product-image--location--gallery">
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <!-- .product__gallery / end -->
-                <!-- .product__info -->
+                <!-- .product__info -->                
                 <div class="product__info">
                     <div class="product__wishlist-compare">
                         <button type="button" class="btn btn-sm btn-light btn-svg-icon" data-toggle="tooltip" data-placement="right" title="Wishlist">
@@ -111,7 +111,7 @@
                             </svg>
                         </button>
                     </div>
-                    <h1 class="product__name">Brandix Screwdriver SCREW1500ACC</h1>
+                    <h1 class="product__name">{{$details['Name']}}</h1>
                     <div class="product__rating">
                         <div class="product__rating-stars">
                             <div class="rating">
@@ -227,7 +227,7 @@
                         Availability: <span class="text-success">In Stock</span>
                     </div>
                     <div class="product__prices">
-                        $1,499.00
+                        AED {{$details['UnitPrice']}}
                     </div>
                     <!-- .product__options -->
                     <form class="product__options">
@@ -324,7 +324,7 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
 
