@@ -20,8 +20,6 @@ class SubCategoryHome extends React.Component {
         if(categories.Categories__r && categories.Categories__r.records.length){
             validSubcategory = true;            
         }
-        console.log(categories.Name);
-        
         return (
                 validSubcategory ? (
                         categories.Categories__r.records.slice(0, 5).map(subCat =>(
