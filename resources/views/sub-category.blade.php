@@ -122,7 +122,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product-card__rating-legend">9 Reviews</div>
                                     </div>
                                     <ul class="product-card__features-list">
                                         <li>Speed: 750 RPM</li>
@@ -158,7 +157,7 @@
                                 </div>
                             </div>
                         </div>                            
-                        @endforeach
+                        @endforeach                        
                     </div>
                 </div>
                 @else
@@ -167,6 +166,7 @@
             </div>
             <div id="slick-nav-1" class="products-slick-nav"></div>
         </div>
+        {{$results->links()}}
     </div>
 </div>
 

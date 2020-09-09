@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import SubCategoryHome from './SubCategoryHome';
+import AddToCartButton from './AddToCartButton';
+
 
 class Category extends React.Component {
     constructor(props) {
@@ -37,9 +39,7 @@ class Category extends React.Component {
                                 <div className="category-card__all">
                                     <a href={"product/" + category.Id}>Show All</a>
                                 </div>
-                                <div className="category-card__products">
-                                    572 Products
-                                </div>
+                                <AddToCartButton />
                             </div>
                         </div>
                     </div>

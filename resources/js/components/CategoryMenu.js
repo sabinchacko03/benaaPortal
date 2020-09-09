@@ -10,7 +10,7 @@ class CategoryMenu extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('api/categories').then(response => {
+        axios.get('http://localhost/benaa-portal/api/categories').then(response => {
             this.setState({
                 categories: response.data
             });
@@ -19,18 +19,15 @@ class CategoryMenu extends React.Component {
 
     render() {
         const {categories} = this.state;
-        return (<select className="search__categories" aria-label="Category" id="categorySearchList">
-                                        <option value="all">All Categories</option>
-                {categories.map(category => (
-                    <option value="{category.Id}">{category.Name.toLowerCase()}</option>
-                ))}
-                </select>
-                
-                                    
-                                    );
+        categories.unshift({Id: 'All', Name : 'All Categories'});
+        return (
+                    categories.map(category => (
+                        <option value={category.Id} style={{textTransform: 'capitalize'}}>{category.Name.toLowerCase()}</option>
+                    ))                
+                );
     }
 }
 
-if (document.getElementById('categoryList')) {
-    ReactDOM.render(<CategoryMenu />, document.getElementById('categoryList'));
+if (document.getElementById('categorySearchList')) {
+    ReactDOM.render(<CategoryMenu />, document.getElementById('categorySearchList'));
 }

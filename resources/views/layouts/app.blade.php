@@ -206,7 +206,8 @@
                         <div class="search search--location--header ">
                             <div class="search__body">
                                 <form class="search__form" action="{{ url('search')}}" method="GET">
-                                    <div id="categoryList"></div>
+                                    <select class="search__categories" aria-label="Category" id="categorySearchList" style="text-transform: capitalize;">
+                                    </select>
                                     <input class="search__input" name="searchKey" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
                                     <button class="search__button search__button--type--submit" type="submit">
                                         <svg width="20px" height="20px">
@@ -531,14 +532,7 @@
                                                 </div>
                                                 <!-- .menu / end -->
                                             </div>
-                                        </li>
-                                        <li class="nav-links__item ">
-                                            <a class="nav-links__item-link" href="https://themeforest.net/item/stroyka-tools-store-html-template/23326943">
-                                                <div class="nav-links__item-body">
-                                                    Buy Theme
-                                                </div>
-                                            </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                 </div>
                                 <!-- .nav-links / end -->
@@ -1095,6 +1089,7 @@
     </div>
     <!-- photoswipe / end -->
     <!-- js -->
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
     <script src="{{ asset('public/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('public/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('public/vendor/owl-carousel/owl.carousel.min.js') }}"></script>

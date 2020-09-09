@@ -276,7 +276,4 @@
 </div>
 <!-- .block-categories / end -->
 
-
-<script src="{{ asset('public/js/app.js') }}" defer></script>
-
 @endsection
