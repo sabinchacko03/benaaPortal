@@ -66038,7 +66038,7 @@ var Category = /*#__PURE__*/function (_React$Component) {
           className: "category-card__all"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "product/" + category.Id
-        }, "Show All")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddToCartButton__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
+        }, "Show All")))));
       });
     }
   }]);

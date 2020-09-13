@@ -138,22 +138,32 @@
                                     <div class="product-card__prices">
                                         AED {{$product['UnitPrice']}}
                                     </div>
-                                    <div class="product-card__buttons">
-                                        <button class="btn btn-primary product-card__addtocart" type="button">Add To Cart</button>
-                                        <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
-                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
-                                            <svg width="16px" height="16px">
-                                            <use xlink:href="images/sprite.svg#wishlist-16"></use>
-                                            </svg>
-                                            <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
-                                        </button>
-                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
-                                            <svg width="16px" height="16px">
-                                            <use xlink:href="images/sprite.svg#compare-16"></use>
-                                            </svg>
-                                            <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
-                                        </button>
-                                    </div>
+                                    <form action="{{URL::to('/addtocart')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{$product['Id']}}" />
+                                        <input type="hidden" name="name" value="{{$product['Name']}}" />
+                                        <input type="hidden" name="price" value="{{$product['UnitPrice']}}" />
+                                        <input type="hidden" name="image" value="{{$product['Product2']['Default_Image_URL__c']}}" />
+                                        <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{$category}}/{{$category}}/{{$product['Id']}}" />
+
+
+                                        <div class="product-card__buttons">
+                                            <button class="btn btn-primary product-card__addtocart" type="submit">Add To Cart</button>
+                                            <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
+                                            <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                                <svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#wishlist-16"></use>
+                                                </svg>
+                                                <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                            </button>
+                                            <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                                <svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#compare-16"></use>
+                                                </svg>
+                                                <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>                            

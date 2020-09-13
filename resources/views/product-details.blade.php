@@ -43,7 +43,7 @@
                                         <img class="product-image__img" src="{{$details['Product2']['Default_Image_URL__c']}}" alt="">
                                     </a>
                                 </div>
-                                <div class="product-image product-image--location--gallery">
+                                <!-- <div class="product-image product-image--location--gallery">
                                     <a href="images/products/product-16-1.jpg" data-width="700" data-height="700" class="product-image__body" target="_blank">
                                         <img class="product-image__img" src="images/products/product-16-1.jpg" alt="">
                                     </a>
@@ -62,10 +62,10 @@
                                     <a href="images/products/product-16-4.jpg" data-width="700" data-height="700" class="product-image__body" target="_blank">
                                         <img class="product-image__img" src="images/products/product-16-4.jpg" alt="">
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <div class="product-gallery__carousel">
+                        <!-- <div class="product-gallery__carousel">
                             <div class="owl-carousel" id="product-carousel">
                                 <a href="images/products/product-16.jpg" class="product-image product-gallery__carousel-item">
                                     <div class="product-image__body">
@@ -93,7 +93,7 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- .product__gallery / end -->
@@ -230,7 +230,8 @@
                         AED {{$details['UnitPrice']}}
                     </div>
                     <!-- .product__options -->
-                    <form class="product__options">
+                    <form class="product__options" action="{{URL::to('/addtocart')}}" method="POST">
+                        @csrf
                         <div class="form-group product__option">
                             <label class="product__option-label">Color</label>
                             <div class="input-radio-color">
@@ -278,7 +279,12 @@
                             <div class="product__actions">
                                 <div class="product__actions-item">
                                     <div class="input-number product__quantity">
-                                        <input id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1">
+                                        <input id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1" name="quantity">
+                                        <input type="hidden" name="id" value="{{$details['Id']}}" />
+                                        <input type="hidden" name="name" value="{{$details['Name']}}" />
+                                        <input type="hidden" name="price" value="{{$details['UnitPrice']}}" />
+                                        <input type="hidden" name="image" value="{{$details['Product2']['Default_Image_URL__c']}}" />
+                                        <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{$details['Product2']['Portal_Category__c']}}/{{$details['Product2']['Portal_Subcategory__c']}}/{{$details['Id']}}" />
                                         <div class="input-number__add"></div>
                                         <div class="input-number__sub"></div>
                                     </div>
@@ -313,15 +319,15 @@
                             <a href="">Electrodes</a>
                             <a href="">Chainsaws</a>
                         </div>
-                    </div>
-                    <div class="product__share-links share-links">
+                    </div>  
+                    <!-- <div class="product__share-links share-links">
                         <ul class="share-links__list">
                             <li class="share-links__item share-links__item--type--like"><a href="">Like</a></li>
                             <li class="share-links__item share-links__item--type--tweet"><a href="">Tweet</a></li>
                             <li class="share-links__item share-links__item--type--pin"><a href="">Pin It</a></li>
                             <li class="share-links__item share-links__item--type--counter"><a href="">4K</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

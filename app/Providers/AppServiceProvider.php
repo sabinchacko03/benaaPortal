@@ -30,5 +30,8 @@ class AppServiceProvider extends ServiceProvider
         ]);
         $result = $response->json();
         View::share('categories', $result['data']);
+
+        $cart = \Cart::content();
+        View::share('cart', $cart);
     }
 }

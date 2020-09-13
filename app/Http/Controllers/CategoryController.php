@@ -36,6 +36,8 @@ class CategoryController extends Controller {
         $currentItems = array_slice($result['data'], $perPage * ($currentPage -1 ), $perPage);
         $paginator = new LengthAwarePaginator($currentItems, count($result['data']), $perPage, $currentPage);
         $paginator->setPath('');
+        // dd(\Cart::content());
+        // dd(\Cart::total());
         
         // $parentCat = $result['data'][0]['Parent_Category__r']['Name'];
         
@@ -52,9 +54,48 @@ class CategoryController extends Controller {
     }
 
     public function addToCart(Request $request){
-        $validatedData = $request->validate(['item' => 'required']);
-        $item = $validatedData['item'];
-        // $item = $request->get('item');
-        echo "added " . $item ;
+        // $validatedData = $request->validate(['item' => 'required']);
+        \Cart::setGlobalTax(5);
+        
+        $rowId = $request->get('id');
+        $name = $request->get('name');
+        $price = $request->get('price');
+        $image = $request->get('image');
+        $link = $request->get('link');
+
+        $qty = $request->has('quantity') ? $qty = $request->get('quantity') : 1;
+        \Cart::add($rowId, $name, $qty, $price, 0, ['image' => $image, 'link' => $link]);
+        return redirect()->back();
+    }
+
+    public function deleteItem(Request $request){
+        $rowId = $request->get('rowId');
+        if($request->submit == 'delete'){
+            \Cart::remove($rowId);
+        }
+        return redirect()->back();
+    }
+
+    public function updateCart(Request $request){
+        if($request->submit == 'update'){
+            foreach(\Cart::content() as $item){
+                \Cart::update($item->rowId, $request->get($item->rowId));
+            }
+        }
+        return redirect()->back();
+    }
+
+    public function checkoutSubmit(Request $request){
+        $validatedData = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => ['required', 'email:rfc,dns'],
+            'phone' => 'required',
+            'terms' => 'required',
+            ]);
+        
+        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/search', [
+            'key' => $key,
+        ]);
     }
 }

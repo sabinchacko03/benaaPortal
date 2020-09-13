@@ -39,7 +39,6 @@ class Category extends React.Component {
                                 <div className="category-card__all">
                                     <a href={"product/" + category.Id}>Show All</a>
                                 </div>
-                                <AddToCartButton />
                             </div>
                         </div>
                     </div>
