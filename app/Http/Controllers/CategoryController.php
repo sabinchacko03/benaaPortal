@@ -35,13 +35,10 @@ class CategoryController extends Controller {
         $perPage = 12;
         $currentItems = array_slice($result['data'], $perPage * ($currentPage -1 ), $perPage);
         $paginator = new LengthAwarePaginator($currentItems, count($result['data']), $perPage, $currentPage);
-        $paginator->setPath('');
-        // dd(\Cart::content());
-        // dd(\Cart::total());
+        $paginator->setPath('');      
+        $subCategoryName = $paginator[0]['Product2']['Portal_Subcategory__r']['Name'];
         
-        // $parentCat = $result['data'][0]['Parent_Category__r']['Name'];
-        
-        return view('sub-category', ['results' => $paginator, 'category' => $subCategory]);
+        return view('sub-category', ['results' => $paginator, 'category' => $subCategoryName]);
     }
     
     public function showProductDetails($category, $subCategory, $product){

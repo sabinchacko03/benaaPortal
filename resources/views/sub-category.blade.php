@@ -3,6 +3,30 @@
 @section('title', '800Benaa | '.$category)
 
 @section('content')
+<div class="page-header">
+    <div class="page-header__container container">
+        <div class="page-header__breadcrumb">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{URL::to('/')}}">Home</a>
+                        <svg class="breadcrumb-arrow" width="6px" height="9px">
+                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                        </svg>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="{{URL::to('/')}}/product/{{$results[0]['Product2']['Portal_Category__r']['Id']}}/">{{$results[0]['Product2']['Portal_Category__r']['Name']}}</a>
+                        <svg class="breadcrumb-arrow" width="6px" height="9px">
+                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                        </svg>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$category}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
 <div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
     <div class="container">
         <div class="block block--highlighted block-categories block-categories--layout--classic">
@@ -150,18 +174,6 @@
                                         <div class="product-card__buttons">
                                             <button class="btn btn-primary product-card__addtocart" type="submit">Add To Cart</button>
                                             <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
-                                            <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
-                                                <svg width="16px" height="16px">
-                                                <use xlink:href="images/sprite.svg#wishlist-16"></use>
-                                                </svg>
-                                                <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
-                                            </button>
-                                            <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
-                                                <svg width="16px" height="16px">
-                                                <use xlink:href="images/sprite.svg#compare-16"></use>
-                                                </svg>
-                                                <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
-                                            </button>
                                         </div>
                                     </form>
                                 </div>
