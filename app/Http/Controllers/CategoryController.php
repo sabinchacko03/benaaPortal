@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination\LengthAwarePaginator;
+use PDF;
 
 class CategoryController extends Controller {
 
@@ -26,8 +27,9 @@ class CategoryController extends Controller {
     }
     
     public function showSubcategoryProducts(Request $request, $category, $subCategory) {
+        $subcategoryString = $category .'#'. $subCategory;
         $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/fetchProducts', [
-                    'subcategoryId' => $subCategory
+                    'subcategoryId' => $subcategoryString
         ]);
         $result = $response->json();
         
@@ -37,13 +39,15 @@ class CategoryController extends Controller {
         $paginator = new LengthAwarePaginator($currentItems, count($result['data']), $perPage, $currentPage);
         $paginator->setPath('');      
         $subCategoryName = $paginator[0]['Product2']['Portal_Subcategory__r']['Name'];
+        $CategoryName = $paginator[0]['Product2']['Portal_Category__r']['Name'];
         
-        return view('sub-category', ['results' => $paginator, 'category' => $subCategoryName]);
+        return view('sub-category', ['results' => $paginator, 'category' => $CategoryName, 'subCategory' => $subCategoryName]);
     }
     
     public function showProductDetails($category, $subCategory, $product){
+        $productString = $category . '#'. $subCategory .'#'. $product;
         $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/productDetail', [
-                    'pricebookEntryId' => $product
+                    'pricebookEntryId' => $productString
         ]);
         $result = $response->json();
         
@@ -59,8 +63,8 @@ class CategoryController extends Controller {
         $price = $request->get('price');
         $image = $request->get('image');
         $link = $request->get('link');
-
         $qty = $request->has('quantity') ? $qty = $request->get('quantity') : 1;
+
         \Cart::add($rowId, $name, $qty, $price, 0, ['image' => $image, 'link' => $link]);
         return redirect()->back();
     }
@@ -90,9 +94,45 @@ class CategoryController extends Controller {
             'phone' => 'required',
             'terms' => 'required',
             ]);
+
+        if($request->submit == 'quote'){
+            $pdf = PDF::loadView('getquote', ['details' => $request]);
+            return $pdf->download('getQuote.pdf');
+            return redirect()->back();
+        }
         
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/search', [
-            'key' => $key,
+        // $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/search', [
+        //     'key' => $key,
+        // ]);
+    }
+
+    public function getCart(){
+        $cart = array();
+        $temp = array();
+        foreach(\Cart::content() as $row){
+            $temp['subtotal'] = $row->subtotal();
+            $temp['total'] = $row->total();
+            $temp['qty'] = $row->qty;
+            $temp['name'] = $row->name;
+            $cart[] = $temp;
+        }
+        $result['cart'] = $cart;
+        $result['subtotal'] = \Cart::subtotal();
+        $result['total'] = \Cart::total();
+        $result['tax'] = \Cart::tax();
+
+        return json_encode($result);
+    }
+
+    public function getRegions(){
+        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/regions', [
+            '' => ''
         ]);
+        $result = $response->json();
+        return json_encode($result['data']);
+    }
+
+    public function getShippingCharge(){
+        
     }
 }

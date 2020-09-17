@@ -17,11 +17,11 @@
                     <div class="block-categories__item category-card category-card--layout--classic">
                         <div class="category-card__body">
                             <div class="category-card__image">
-                                <a href="{{URL::to('/')}}/product/{{$category}}/{{$subCategory['Id']}}"><img src="{{$subCategory['Image_URL__c']}}" alt=""></a>
+                                <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory['Name']))}}"><img src="{{$subCategory['Image_URL__c']}}" alt=""></a>
                             </div>
                             <div class="category-card__content">
                                 <div class="category-card__name">
-                                    <a href="{{URL::to('/')}}/product/{{$category}}/{{$subCategory['Id']}}">{{$subCategory['Name']}}</a>
+                                    <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory['Name']))}}">{{$subCategory['Name']}}</a>
                                 </div>
                                 <div class="category-card__products">
                                     572 Products

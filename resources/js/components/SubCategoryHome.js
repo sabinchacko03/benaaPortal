@@ -23,7 +23,7 @@ class SubCategoryHome extends React.Component {
         return (
                 validSubcategory ? (
                         categories.Categories__r.records.slice(0, 5).map(subCat =>(
-                        <li style={{textTransform: 'capitalize'}} key={subCat.Id}><a href={"product/" + categories.Id +"/"+ subCat.Id}>{subCat.Name.toLowerCase()}</a></li>
+                        <li style={{textTransform: 'capitalize'}} key={subCat.Id}><a href={"product/" + categories.Name.replace(/ /g,"-").toLowerCase() +"/"+ subCat.Name.replace(/ /g,"-").toLowerCase()}>{subCat.Name.toLowerCase()}</a></li>
                         )) ) : (
                         null
                     )

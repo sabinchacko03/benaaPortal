@@ -51,7 +51,7 @@
                                     <div class="product-card__badge product-card__badge--new">New</div>
                                 </div>
                                 <div class="product-card__image product-image">
-                                    <a href="{{URL::to('/')}}/product/{{$category}}/{{$category}}/{{$product['Id']}}" class="product-image__body">
+                                    <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{strtolower(str_replace(' ', '-', $product['Name']))}}" class="product-image__body">
                                         <img class="product-image__img" src="{{$product['Product2']['Default_Image_URL__c']}}" alt="">
                                     </a>
                                 </div>

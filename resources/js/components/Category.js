@@ -27,17 +27,17 @@ class Category extends React.Component {
                     <div className="block-categories__item category-card category-card--layout--classic">
                         <div className="category-card__body">
                             <div className="category-card__image">
-                                <a href={"product/" + category.Id}><img src={category.Image_URL__c} alt="" /></a>
+                                <a href={"product/" + category.Name.replace(/ /g,"-").toLowerCase()}><img src={category.Image_URL__c} alt="" /></a>
                             </div>
                             <div className="category-card__content" style={{width: '53%'}}>
                                 <div className="category-card__name">
-                                    <a href={"product/" + category.Id} style={{textTransform: 'capitalize'}}>{category.Name.toLowerCase()}</a>                                    
+                                    <a href={"product/" + category.Name.replace(/ /g,"-").toLowerCase()} style={{textTransform: 'capitalize'}}>{category.Name.toLowerCase()}</a>                                    
                                 </div>  
                                 <ul className="category-card__links">
                                     <SubCategoryHome categories={category} />
                                 </ul>
                                 <div className="category-card__all">
-                                    <a href={"product/" + category.Id}>Show All</a>
+                                    <a href={"product/" + category.Name.replace(/ /g,"-").toLowerCase()}>Show All</a>
                                 </div>
                             </div>
                         </div>

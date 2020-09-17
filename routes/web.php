@@ -24,3 +24,4 @@ Route::view('cart', 'cart');
 Route::post('deleteitem', 'CategoryController@deleteItem');
 Route::view('checkout', 'checkout');
 Route::post('submitcheckout', 'CategoryController@checkoutSubmit');
+Route::get('api/getcart', 'CategoryController@getCart');
