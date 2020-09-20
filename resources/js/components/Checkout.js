@@ -7,7 +7,8 @@ class Checkout extends React.Component{
         super(props);
         this.state = {
             regions: [],
-            selectedRegion: []
+            selectedRegion: '',
+            cartInfo: [],
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -16,9 +17,17 @@ class Checkout extends React.Component{
         axios.get('api/getregions').then(response => {
             this.setState({
                 regions: response.data
+            })
+            .catch(function (error) {
+                console.log(error);
             });
-        });      
-        console.log(this.state);
+        });
+
+        axios.get('api/getcart').then(response => {
+            this.setState({
+                cartInfo : response.data,
+            });
+        });
     }
 
 
@@ -26,14 +35,21 @@ class Checkout extends React.Component{
         this.setState({
             selectedRegion: e.target.value,
         });
-        console.log(this.state);
-        console.log('function clicked');
+
+        axios.post('api/updateshipping', {
+            region: e.target.value
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     };
 
 
     render(){
         let {shippingZones} = this.state;
-        console.log(this.state);
         return(
             <div className="row">
                 <div className="col-12 mb-3">
@@ -50,7 +66,7 @@ class Checkout extends React.Component{
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label for="checkout-last-name">Last Name *</label>
-                                    <input type="text" className="form-control" id="checkout-last-name" placeholder="Last Name" name="lastname" required onChange={this.handleChange} />
+                                    <input type="text" className="form-control" id="checkout-last-name" placeholder="Last Name" name="lastname" required />
                                 </div>
                             </div>
                             <div className="form-group">
@@ -59,14 +75,14 @@ class Checkout extends React.Component{
                             </div>
                             <div className="form-group">
                                 <label for="checkout-country">Country</label>
-                                <select id="checkout-country" className="form-control form-control-select2" name="country" onChange={this.handleChange}>
-                                    <option value="uae" selected>United Arab Emirates</option>
+                                <select id="checkout-country" required className="form-control form-control-select2" name="country">
+                                    <option value="uae">United Arab Emirates</option>
                                 </select>
                             </div>
                             <div className="form-group">
                                 <label for="checkout-state">Region *</label>
-                                <select id="checkoutRegion" className="form-control form-control-select2" name="region" onChange={this.handleChange}>
-                                    <option>ddd</option>
+                                <select id="checkoutRegion" required className="form-control" name="region" onChange={this.handleChange}>
+                                <option value=''></option>
                                     {this.state.regions.map(zone=>(                                        
                                         <option value={zone}>{zone}</option>
                                     ))}
@@ -112,7 +128,7 @@ class Checkout extends React.Component{
                         <div className="card-divider"></div>
                     </div>
                 </div>
-                <CartDetails />
+                <CartDetails cartInfo={this.state.cartInfo}/>
             </div>
         )
     }

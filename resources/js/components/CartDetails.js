@@ -9,6 +9,7 @@ class CartDetails extends React.Component{
             total: 0,
             subtotal: 0,
             tax: 0,
+            shippingCharge: 0,
         }
     }
 
@@ -19,6 +20,7 @@ class CartDetails extends React.Component{
                 subtotal: response.data.subtotal,
                 total: response.data.total,
                 tax: response.data.tax,
+                shippingCharge: response.data.shippingCharge,
             });
         });
     }
@@ -57,13 +59,13 @@ class CartDetails extends React.Component{
                                 </tr>
                                 <tr>
                                     <th>Shipping</th>
-                                    <td>NA</td>
+                                    <td>AED {this.state.shippingCharge}</td>
                                 </tr>
                             </tbody>
                             <tfoot className="checkout__totals-footer">
                                 <tr>
                                     <th>Total</th>
-                                    <td>AED {this.state.total}</td>
+                                    <td>AED {+(this.state.total) + +(this.state.shippingCharge)}</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -73,7 +75,7 @@ class CartDetails extends React.Component{
                                     <label className="payment-methods__item-header">
                                         <span className="payment-methods__item-radio input-radio">
                                             <span className="input-radio__body">
-                                                <input className="input-radio__input" name="checkout_payment_method" type="radio"/>
+                                                <input className="input-radio__input" name="checkout_payment_method" type="radio" checked/>
                                                 <span className="input-radio__circle"></span>
                                             </span>
                                         </span>
@@ -102,6 +104,23 @@ class CartDetails extends React.Component{
                                     </div>
                                 </li>
                             </ul>
+                        </div>
+
+                        <div class="checkout__agree form-group">
+                            <div class="form-check">
+                                <span class="form-check-input input-check">
+                                    <span class="input-check__body">
+                                        <input class="input-check__input" type="checkbox" id="checkout-terms" name="terms" />
+                                        <span class="input-check__box"></span>
+                                        <svg class="input-check__icon" width="9px" height="7px">
+                                            <use xlinkHref="images/sprite.svg#check-9x7"></use>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <label class="form-check-label" for="checkout-terms">
+                                    I have read and agree to the website <a target="_blank" href="terms-and-conditions.html">terms and conditions</a>*
+                                </label>
+                            </div>
                         </div>
                         
                         <button type="submit" name="submit" value="submit" className="btn btn-primary btn-xl btn-block">Place Order</button>

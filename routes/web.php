@@ -22,6 +22,7 @@ Route::post('addtocart', 'CategoryController@addToCart');
 Route::post('updatecart', 'CategoryController@updateCart');
 Route::view('cart', 'cart');
 Route::post('deleteitem', 'CategoryController@deleteItem');
-Route::view('checkout', 'checkout');
+Route::get('checkout', 'CategoryController@checkout');
 Route::post('submitcheckout', 'CategoryController@checkoutSubmit');
 Route::get('api/getcart', 'CategoryController@getCart');
+// Route::post('api/updateshipping', 'CategoryController@updateShipping');

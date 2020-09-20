@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('categories', 'CategoryController@getCategories');
 Route::post('addtocart', 'CategoryController@addToCart');
 Route::get('getregions', 'CategoryController@getRegions');
+Route::post('updateshipping', 'CategoryController@updateShipping');
