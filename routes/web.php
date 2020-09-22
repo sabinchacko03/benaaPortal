@@ -26,4 +26,6 @@ Route::get('checkout', 'CategoryController@checkout');
 Route::post('submitcheckout', 'CategoryController@checkoutSubmit');
 Route::get('api/getcart', 'CategoryController@getCart');
 Route::get('shop', 'CategoryController@shop');
+Route::view('contact-us', 'contact-us');
+Route::view('about-us', 'about-us');
 // Route::post('api/updateshipping', 'CategoryController@updateShipping');

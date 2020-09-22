@@ -104,10 +104,10 @@
                     <div class="topbar__container container">
                         <div class="topbar__row">
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="about-us.html">About Us</a>
+                                <a class="topbar-link" href="about-us">About Us</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="contact-us.html">Contact Us</a>
+                                <a class="topbar-link" href="contact-us">Contact Us</a>
                             </div>
                             <div class="topbar__spring"></div>
                             <div class="topbar__item">
@@ -265,7 +265,7 @@
                                         <li class="nav-links__item  nav-links__item--has-submenu ">
                                             <a class="nav-links__item-link" href="account-login.html">
                                                 <div class="nav-links__item-body">
-                                                    Account
+                                                    My Account
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
                                                         <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
                                                     </svg>
@@ -410,10 +410,9 @@
                                 <div class="site-footer__widget footer-links">
                                     <h5 class="footer-links__title">Information</h5>
                                     <ul class="footer-links__list">
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">About Us</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Delivery Information</a></li>
+                                        <li class="footer-links__item"><a href="about-us" class="footer-links__link">About Us</a></li>
                                         <li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Contact Us</a></li>
+                                        <li class="footer-links__item"><a href="contact-us" class="footer-links__link">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>                            

@@ -12,7 +12,7 @@
             <div class="col-12">
                 <div class="block-slideshow__body">
                     <div class="owl-carousel">                        
-                        <a class="block-slideshow__slide" href="shop">
+                        <a class="block-slideshow__slide" href="product/hand-&-power-tools">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2-mob.jpg')}}')"></div>
                             <div class="block-slideshow__slide-content">
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="block-slideshow__slide" href="shop">
+                        <a class="block-slideshow__slide" href="product/bathrooms">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3-mob.jpg')}}')"></div>
                             <div class="block-slideshow__slide-content">
@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                         </a>                        
-                        <a class="block-slideshow__slide" href="shop">
+                        <a class="block-slideshow__slide" href="product/hand-&-power-tools">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1-mob.jpg')}}')"></div>
                             <div class="block-slideshow__slide-content">
