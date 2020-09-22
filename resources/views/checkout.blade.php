@@ -43,9 +43,6 @@
         <form action="{{URL::to('/submitcheckout')}}" method="POST">
             @csrf
             <div class="row">
-                <div class="col-12 mb-3">
-                    <div class="alert alert-lg alert-primary">Returning customer? <a href="">Click here to login</a></div>
-                </div>
                 <div class="col-12 col-lg-6 col-xl-7">
                     <div class="card mb-lg-0">
                         <div class="card-body">                        
@@ -66,7 +63,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="checkout-country">Country</label>
-                                <select id="checkout-country" class="form-control form-control-select2" name="country">
+                                <select id="checkout-country" class="form-control" name="country">
                                     <option value="uae" selected>United Arab Emirates</option>
                                 </select>
                             </div>
@@ -100,21 +97,7 @@
                                     <label for="checkout-phone">Phone *</label>
                                     <input type="text" class="form-control" id="checkout-phone" placeholder="Phone" name="phone" required value="{{Session::get('formValues.phone') ?? ''}}"/>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <span class="form-check-input input-check">
-                                        <span class="input-check__body">
-                                            <input class="input-check__input" type="checkbox" id="checkout-create-account">
-                                            <span class="input-check__box"></span>
-                                            <svg class="input-check__icon" width="9px" height="7px">
-                                                <use xlink:href="images/sprite.svg#check-9x7"></use>
-                                            </svg>
-                                        </span>
-                                    </span>
-                                    <label class="form-check-label" for="checkout-create-account">Create an account?</label>
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                         <div class="card-divider"></div>
                     </div>
@@ -153,7 +136,7 @@
                                     </tr>
                                     <tr>
                                         <th>Shipping</th>
-                                        <td>{{Session::get('shippingCharge') ?? 'NA'}}</td>
+                                        <td>{{Session::get('shippingCharge') ? 'AED '. number_format(Session::get('shippingCharge'), 2) : 'NA'}}</td>
                                     </tr>
                                 </tbody>
                                 <tfoot class="checkout__totals-footer">

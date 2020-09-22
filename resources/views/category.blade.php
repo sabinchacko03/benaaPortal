@@ -3,6 +3,25 @@
 @section('title', '800Benaa | '.$category)
 
 @section('content')
+
+<div class="page-header">
+    <div class="page-header__container container">
+        <div class="page-header__breadcrumb">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{URL::to('/')}}">Home</a>
+                        <svg class="breadcrumb-arrow" width="6px" height="9px">
+                        <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
+                        </svg>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$category}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
 <div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
     <div class="container">
         <div class="block block--highlighted block-categories block-categories--layout--classic">

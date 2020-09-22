@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('search', 'HomeController@search');
+Route::get('search/{searchKey?}/{page?}', 'HomeController@search');
 Route::get('product/{category}', 'CategoryController@showSubcategories');
 Route::get('product/{category}/{sub_category}', 'CategoryController@showSubcategoryProducts');
 Route::get('product/{category}/{sub_category}/{product}', 'CategoryController@showProductDetails');
@@ -25,4 +25,5 @@ Route::post('deleteitem', 'CategoryController@deleteItem');
 Route::get('checkout', 'CategoryController@checkout');
 Route::post('submitcheckout', 'CategoryController@checkoutSubmit');
 Route::get('api/getcart', 'CategoryController@getCart');
+Route::get('shop', 'CategoryController@shop');
 // Route::post('api/updateshipping', 'CategoryController@updateShipping');

@@ -18,12 +18,31 @@ class CategoryController extends Controller {
         return json_encode($result['data']);
     }
 
-    public function showSubcategories($category) {
+    public function showSubcategories(Request $request, $category) {
         $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/subcategories', [
                     'categoryId' => $category
         ]);
         $result = $response->json();
-        $parentCat = $result['data'][0]['Parent_Category__r']['Name'];
+        if(!count($result['data'])){
+
+            //call the subcategory API with the category name, to get the products
+            $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/fetchProducts', [
+                    'subcategoryId' => $category
+            ]);
+            $result = $response->json();        
+            $parentCat = $result['data'][0]['Product2']['Portal_Category__r']['Name'];
+
+            $currentPage = $request->input("page") ?? 1;
+            $perPage = 12;
+            $currentItems = array_slice($result['data'], $perPage * ($currentPage -1 ), $perPage);
+            $paginator = new LengthAwarePaginator($currentItems, count($result['data']), $perPage, $currentPage);
+            $paginator->setPath('');      
+            $CategoryName = $paginator[0]['Product2']['Portal_Category__r']['Name'];
+            
+            return view('category-product-list', ['results' => $paginator, 'category' => $CategoryName]);
+        }else{
+            $parentCat = $result['data'][0]['Parent_Category__r']['Name'];
+        }        
         return view('category', ['results' => $result['data'], 'category' => $parentCat]);
     }
     
@@ -53,6 +72,14 @@ class CategoryController extends Controller {
         $result = $response->json();
         
         return view('product-details', ['details' => $result['data'], 'product' => 'Check']);
+    }
+
+    public function shop(){
+        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/categories', [
+                    '' => ''
+        ]);
+        $result = $response->json();
+        return view('shop', ['categories' => $result['data']]);
     }
 
     public function addToCart(Request $request){
@@ -120,9 +147,10 @@ class CategoryController extends Controller {
         $validatedData = $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
+            'region' => 'required',
             'email' => ['required', 'email:rfc,dns'],
             'phone' => 'required',
-            'terms' => 'required',
+            'terms' => 'required',            
             ]);
 
         if($request->btnSubmit  == 'quote'){

@@ -9,19 +9,19 @@
                     <li class="breadcrumb-item">
                         <a href="{{URL::to('/')}}">Home</a>
                         <svg class="breadcrumb-arrow" width="6px" height="9px">
-                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                        <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
                         </svg>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{URL::to('/')}}/product/{{$details['Product2']['Portal_Category__r']['Id']}}">{{$details['Product2']['Portal_Category__r']['Name']}}</a>
+                        <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $details['Product2']['Portal_Category__r']['Name']))}}">{{$details['Product2']['Portal_Category__r']['Name']}}</a>
                         <svg class="breadcrumb-arrow" width="6px" height="9px">
-                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                        <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
                         </svg>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{URL::to('/')}}/product/{{$details['Product2']['Portal_Category__c']}}/{{$details['Product2']['Portal_Subcategory__c']}}">{{$details['Product2']['Portal_Subcategory__r']['Name']}}</a>
+                        <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $details['Product2']['Portal_Category__r']['Name']))}}/{{$details['Product2']['Portal_Subcategory__r']['Name']}}">{{$details['Product2']['Portal_Subcategory__r']['Name']}}</a>
                         <svg class="breadcrumb-arrow" width="6px" height="9px">
-                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                        <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
                         </svg>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">{{$details['Name']}}</li>

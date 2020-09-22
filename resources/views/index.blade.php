@@ -11,35 +11,35 @@
             <!--<div class="col-lg-3 d-none d-lg-block"></div>-->
             <div class="col-12">
                 <div class="block-slideshow__body">
-                    <div class="owl-carousel">
-                        <a class="block-slideshow__slide" href="">
+                    <div class="owl-carousel">                        
+                        <a class="block-slideshow__slide" href="shop">
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2-mob.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-content">
+                                <div class="block-slideshow__slide-title">Power Tool Collections</div>
+                                <div class="block-slideshow__slide-text">Power Tools that will help get the job done including <br/> cordless and corded drills, saws, <br/>impact wrenches, grinder and much more.</div>
+                                <div class="block-slideshow__slide-button">
+                                    <span class="btn btn-primary btn-lg">Shop Now</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block-slideshow__slide" href="shop">
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3-mob.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-content">
+                                <div class="block-slideshow__slide-title">Big Choice of Bathroom Accessories</div>
+                                <div class="block-slideshow__slide-text">Complete your bathroom with our assortment of <br/>luxury bathroom accessories.</div>
+                                <div class="block-slideshow__slide-button">
+                                    <span class="btn btn-primary btn-lg">Shop Now</span>
+                                </div>
+                            </div>
+                        </a>                        
+                        <a class="block-slideshow__slide" href="shop">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1-mob.jpg')}}')"></div>
                             <div class="block-slideshow__slide-content">
-                                <div class="block-slideshow__slide-title">Big choice of<br>Plumbing products</div>
-                                <div class="block-slideshow__slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Etiam pharetra laoreet dui quis molestie.</div>
-                                <div class="block-slideshow__slide-button">
-                                    <span class="btn btn-primary btn-lg">Shop Now</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="block-slideshow__slide" href="">
-                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2.jpg')}}')"></div>
-                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2-mob.jpg')}}')"></div>
-                            <div class="block-slideshow__slide-content">
-                                <div class="block-slideshow__slide-title">Screwdrivers<br>Professional Tools</div>
-                                <div class="block-slideshow__slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Etiam pharetra laoreet dui quis molestie.</div>
-                                <div class="block-slideshow__slide-button">
-                                    <span class="btn btn-primary btn-lg">Shop Now</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="block-slideshow__slide" href="">
-                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3.jpg')}}')"></div>
-                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3-mob.jpg')}}')"></div>
-                            <div class="block-slideshow__slide-content">
-                                <div class="block-slideshow__slide-title">One more<br>Unique header</div>
-                                <div class="block-slideshow__slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Etiam pharetra laoreet dui quis molestie.</div>
+                                <div class="block-slideshow__slide-title">Hand Tool Collections</div>
+                                <div class="block-slideshow__slide-text">Superior Quality Hand Tools For All Purposes</div>
                                 <div class="block-slideshow__slide-button">
                                     <span class="btn btn-primary btn-lg">Shop Now</span>
                                 </div>
@@ -117,7 +117,7 @@
 <div class="block block--highlighted block-categories block-categories--layout--classic">
     <div class="container">
         <div class="block-header">
-            <h3 class="block-header__title">Popular Categories</h3>
+            <h3 class="block-header__title">Categories</h3>
             <div class="block-header__divider"></div>
         </div>
         <div class="block-categories__list" id="categoryDiv">
