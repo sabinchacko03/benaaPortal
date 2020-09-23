@@ -28,15 +28,15 @@
     <div class="row">
         <div class="col-12 col-lg-12">
             <div class="block">
-                <div class="posts-view">
-                    <div class="posts-view__list posts-list posts-list--layout--grid2">
-                        <div class="posts-list__body">
+                <div class="products-view">
+                    <div class="products-view__list products-list" data-layout="grid-3-sidebar" data-mobile-grid-columns="2" data-with-features="false">
+                        <div class="products-list__body">
                             @foreach($categories as $category)
-                                <div class="posts-list__item">
-                                    <div class="post-card post-card--layout--grid post-card--size--nl">
+                                <div class="products-list__item">
+                                    <div class="post-card post-card--layout--grid post-card--size--nl text-center">
                                         <div class="post-card__image">
                                             <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category['Name']))}}">
-                                                <img src="{{$category['Image_URL__c']}}" alt="">
+                                                <img src="{{$category['Image_URL__c']}}" alt="{{$category['Name']}}">
                                             </a>
                                         </div>
                                         <div class="post-card__info">

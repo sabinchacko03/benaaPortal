@@ -40,7 +40,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{URL::to('/submitcheckout')}}" method="POST">
+        <form action="{{URL::to('/submitcheckout')}}" method="POST" id="checkoutForm">
             @csrf
             <div class="row">
                 <div class="col-12 col-lg-6 col-xl-7">
@@ -69,7 +69,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="checkout-state">Region *</label>
-                                <select id="checkout-region" class="form-control" name="region" onchange="this.form.submit();">
+                                <!-- <select id="checkout-region" class="form-control" name="region" onchange="this.form.submit();"> -->
+                                <select id="checkout-region" class="form-control" name="region" onchange="updateShipping(this.value)" required>
                                     <option value="" selected></option>
                                     @foreach($regions as $region)
                                     <option value="{{$region}}" {{Session::get('formValues.region') == $region ? "selected" : ""}}>{{$region}}</option>
@@ -85,7 +86,7 @@
                                 <input type="text" class="form-control" id="checkout-address" name="apartment">
                             </div>                          -->
                             <div class="form-group">
-                                <label for="checkout-postcode">Postcode / ZIP</label>
+                                <label for="checkout-postcode">PO Box</label>
                                 <input type="text" class="form-control" id="checkout-postcode" name="postcode">
                             </div>
                             <div class="form-row">
@@ -136,13 +137,13 @@
                                     </tr>
                                     <tr>
                                         <th>Shipping</th>
-                                        <td>{{Session::get('shippingCharge') ? 'AED '. number_format(Session::get('shippingCharge'), 2) : 'NA'}}</td>
+                                        <td><span id="shippingValueSpan">{{Session::get('shippingCharge') ? 'AED '. number_format(Session::get('shippingCharge'), 2) : 'NA'}}</span></td>
                                     </tr>
                                 </tbody>
                                 <tfoot class="checkout__totals-footer">
                                     <tr>
                                         <th>Total</th>
-                                        <td>AED {{\Cart::total() + Session::get('shippingCharge')}}</td>
+                                        <td><span id="totalValueSpan">AED {{\Cart::total() + Session::get('shippingCharge')}}</span></td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -186,7 +187,7 @@
                                 <div class="form-check">
                                     <span class="form-check-input input-check">
                                         <span class="input-check__body">
-                                            <input class="input-check__input" type="checkbox" id="checkout-terms" name="terms">
+                                            <input class="input-check__input" type="checkbox" id="checkout-terms" name="terms" required>
                                             <span class="input-check__box"></span>
                                             <svg class="input-check__icon" width="9px" height="7px">
                                                 <use xlink:href="{{asset('public/images/sprite.svg#check-9x7')}}"></use>
@@ -209,4 +210,56 @@
         </form>
     </div>
 </div>
+<script>
+function updateShipping(region){
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener("progress", updateProgress);
+    xhr.addEventListener("load", transferComplete);
+    xhr.addEventListener("error", transferFailed);
+    xhr.addEventListener("abort", transferCanceled);
+    var kvpairs = [];
+    var form = document.getElementById("checkoutForm");
+    for ( var i = 0; i < form.elements.length; i++ ) {
+        var e = form.elements[i];
+        kvpairs.push(encodeURIComponent(e.name) + "=" + encodeURIComponent(e.value));
+    }
+    var queryString = kvpairs.join("&");
+
+    // var formValues = new URLSearchParams(new FormData(form)).toString();
+    xhr.open("POST", '{{URL::to('/')}}/api/updateshipping', true);
+
+    //Send the proper header information along with the request
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function() { // Call a function when the state changes.
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            console.log(this.responseText);
+            var cartValues = JSON.parse(this.responseText);
+            document.getElementById('totalValueSpan').innerHTML = cartValues.cartTotal;
+            document.getElementById('shippingValueSpan').innerHTML = cartValues.shippingCharge;
+        }
+    }
+    xhr.send(queryString);
+}
+function updateProgress (oEvent) {
+  if (oEvent.lengthComputable) {
+    var percentComplete = oEvent.loaded / oEvent.total * 100;
+    console.log(percentComplete);
+    // ...
+  } else {
+    // Unable to compute progress information since the total size is unknown
+  }
+}
+function transferComplete(evt) {
+  console.log("The transfer is complete.");
+}
+
+function transferFailed(evt) {
+  console.log("An error occurred while transferring the file.");
+}
+
+function transferCanceled(evt) {
+  console.log("The transfer has been canceled by the user.");
+}
+</script>
 @endsection

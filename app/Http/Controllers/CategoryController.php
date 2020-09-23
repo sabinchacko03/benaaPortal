@@ -224,6 +224,7 @@ class CategoryController extends Controller {
     }
 
     public function updateShipping(Request $request){
+        session(['formValues' => $request->all()]);
         $region = $request->get('region');
         $shippingInfo["shippingCity"] = $region;
         foreach(\Cart::content() as $row){
@@ -232,26 +233,12 @@ class CategoryController extends Controller {
             $shippingInfo["entries"][] = $temp;
         }
         $postArray['shippingInfo'] = $shippingInfo;
-
-        // $postArray['shippingInfo'] = $shippingInfo;
-        // $cURLConnection = curl_init('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/shippingcharges');
-        // curl_setopt($cURLConnection, CURLOPT_CUSTOMREQUEST, "POST");
-        // curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, json_encode($postArray));
-        // curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-        // curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array(                                                                          
-        //     'Content-Type: application/json',                                                                                
-        //     'Content-Length: ' . strlen(json_encode($postArray)))                                                                       
-        // );
-        // $apiResponse = curl_exec($cURLConnection);
-        // curl_close($cURLConnection);
-
         $response = Http::withBody(json_encode($postArray), 'application/json')->post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/shippingcharges');
         $result = $response->json();
         $shippingCharge = $result['data'];
         session(['shippingCharge' => $shippingCharge]);
         session(['cartTotal' => $shippingCharge + (str_replace(',', '', \Cart::total()) + $shippingCharge)]);
-        return $shippingCharge;
-        return json_encode($result['data']);
+        $ajaxReturn = array('shippingCharge' => $shippingCharge ? 'AED '. number_format($shippingCharge, 2) : 'NA', 'cartTotal' => 'AED ' . ($shippingCharge + (str_replace(',', '', \Cart::total()))));
+        return json_encode($ajaxReturn);
     }
-    
 }

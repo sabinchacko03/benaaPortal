@@ -184,7 +184,7 @@
                                                 </div>
                                             </a>                                            
                                         </li>
-                                        <li class="nav-links__item  nav-links__item--has-submenu ">
+                                        <li class="nav-links__item  nav-links__item--has-submenu " id="">
                                             <a class="nav-links__item-link" href="">
                                                 <div class="nav-links__item-body">
                                                     Categories
@@ -196,7 +196,7 @@
                                             <div class="nav-links__submenu nav-links__submenu--type--megamenu nav-links__submenu--size--nl">
                                                 <!-- .megamenu -->
                                                 <div class="megamenu ">
-                                                    <div class="megamenu__body">
+                                                    <div class="megamenu__body" id="categoryTopMenu">
                                                         <div class="row">
                                                             <div class="col-6">
                                                                 <ul class="megamenu__links megamenu__links--level--0">
@@ -253,7 +253,7 @@
                                             </div>
                                         </li>
                                         <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="shop">
+                                            <a class="nav-links__item-link" href="{{URL::to('/')}}/shop">
                                                 <div class="nav-links__item-body">
                                                     Shop
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
@@ -277,7 +277,7 @@
                                 <!-- .nav-links / end -->
                                 <div class="nav-panel__indicators">                                    
                                     <div class="indicator indicator--trigger--click">
-                                        <a href="cart.html" class="indicator__button">
+                                        <a href="{{URL::to('/cart')}}" class="indicator__button">
                                             <span class="indicator__area">
                                                 <svg width="20px" height="20px">
                                                     <use xlink:href="{{asset('public/images/sprite.svg#cart-20')}}"></use>
@@ -678,6 +678,37 @@
     <script src="{{ asset('public/vendor/svg4everybody/svg4everybody.min.js') }}"></script>
     <script>
         svg4everybody();
+    </script>
+    <script>        
+        var xhr = new XMLHttpRequest();        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4){
+                var homeUrl = "{{URL::to('/')}}";
+                var categories = JSON.parse(xhr.responseText);
+                var menuString = '<div class="row">';
+                for (i = 0; i < categories.length; i++) {
+                    if(i%2 == 0){
+                        menuString += '<div class="col-4"> <ul class="megamenu__links megamenu__links--level--0">';
+                    }                    
+                    menuString += '<li class="megamenu__item  megamenu__item--with-submenu ">';
+                    // menuString += '<a style="text-transform: capitalize;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;" href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'">' + categories[i].Name.toLowerCase() +'</a>';
+					menuString += '<a style="text-transform: capitalize;" href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'">' + categories[i].Name.toLowerCase() +'</a>';
+					menuString += '<ul class="megamenu__links megamenu__links--level--1">';
+					// menuString += '<li class="megamenu__item"><a href="">Engravers</a></li>';
+					// menuString += '<li class="megamenu__item"><a href="">Wrenches</a></li>';
+				    // menuString += '<li class="megamenu__item"><a href="">Wall Chaser</a></li>';
+					// menuString += '<li class="megamenu__item"><a href="">Pneumatic Tools</a></li>';
+                    menuString += '</ul></li>';
+                    if(i%2 == 1){
+                        menuString += '</ul></div>';
+                    }
+                }
+                menuString += '</ul></div>';
+                document.getElementById('categoryTopMenu').innerHTML = menuString;
+            }
+        };
+        xhr.open('GET', '{{URL::to('/')}}/api/categories');
+        xhr.send();
     </script>
 </body>
 

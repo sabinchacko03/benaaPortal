@@ -18,7 +18,6 @@ class CategoryMenu extends React.Component {
     }
 
     render() {
-        console.log(process.env.PUBLIC_URL);
         const {categories} = this.state;
         categories.unshift({Id: 'All', Name : 'All Categories'});
         return (
