@@ -66226,7 +66226,7 @@ var Category = /*#__PURE__*/function (_React$Component) {
           style: {
             textTransform: 'capitalize'
           }
-        }, category.Name.toLowerCase())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        }, category.Name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "category-card__links"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubCategoryHome__WEBPACK_IMPORTED_MODULE_2__["default"], {
           categories: category

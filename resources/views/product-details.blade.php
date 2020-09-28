@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if(isset($details))
 <div class="page-header">
     <div class="page-header__container container">
         <div class="page-header__breadcrumb">
@@ -129,5 +130,15 @@
         </div>
     </div>
 </div>
-
+@else
+<div class="block">
+    <div class="container">
+        <div class="product product--layout--standard" data-layout="standard">
+            <div class="product__content">
+                <h2>Product Details are not available!</h2>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @endsection

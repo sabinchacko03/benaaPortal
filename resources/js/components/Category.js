@@ -31,7 +31,7 @@ class Category extends React.Component {
                             </div>
                             <div className="category-card__content" style={{width: '53%'}}>
                                 <div className="category-card__name">
-                                    <a href={"product/" + category.Name.replace(/ /g,"-").toLowerCase()} style={{textTransform: 'capitalize'}}>{category.Name.toLowerCase()}</a>                                    
+                                    <a href={"product/" + category.Name.replace(/ /g,"-").toLowerCase()} style={{textTransform: 'capitalize'}}>{category.Name}</a>                                    
                                 </div>  
                                 <ul className="category-card__links">
                                     <SubCategoryHome categories={category} />

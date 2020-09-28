@@ -104,16 +104,18 @@
                     <div class="topbar__container container">
                         <div class="topbar__row">
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="about-us">About Us</a>
+                                <a class="topbar-link" href="{{URL::to('/about-us')}}">About Us</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="contact-us">Contact Us</a>
+                                <a class="topbar-link" href="{{URL::to('/contact-us')}}">Contact Us</a>
                             </div>
                             <div class="topbar__spring"></div>
                             <div class="topbar__item">
                                 <div class="topbar-dropdown">
                                     <button class="topbar-dropdown__btn" type="button">
+                                    <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank">
                                         My Account
+                                    </a>                                        
                                         <svg width="7px" height="5px">
                                             <use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use>
                                         </svg>
@@ -263,7 +265,7 @@
                                             </a>                                           
                                         </li>
                                         <li class="nav-links__item  nav-links__item--has-submenu ">
-                                            <a class="nav-links__item-link" href="account-login.html">
+                                            <a class="nav-links__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank">
                                                 <div class="nav-links__item-body">
                                                     My Account
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
@@ -399,10 +401,10 @@
                                         Please contact us for more information about our products.
                                     </div>
                                     <ul class="footer-contacts__contacts">
-                                        <li><i class="footer-contacts__icon fas fa-globe-americas"></i>Plot 2125 - Nadd Al Hamar</li>
+                                        <!-- <li><i class="footer-contacts__icon fas fa-globe-americas"></i>Plot 2125 - Nadd Al Hamar</li> -->
                                         <li><i class="footer-contacts__icon far fa-envelope"></i> sales@800benaa.com</li>
                                         <li><i class="footer-contacts__icon fas fa-mobile-alt"></i> 800-23622</li>
-                                        <li><i class="footer-contacts__icon far fa-clock"></i> Sat-Thur 7.00am - 4:00pm</li>
+                                        <!-- <li><i class="footer-contacts__icon far fa-clock"></i> Sat-Thur 7.00am - 4:00pm</li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -410,9 +412,9 @@
                                 <div class="site-footer__widget footer-links">
                                     <h5 class="footer-links__title">Information</h5>
                                     <ul class="footer-links__list">
-                                        <li class="footer-links__item"><a href="about-us" class="footer-links__link">About Us</a></li>
+                                        <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">About Us</a></li>
                                         <li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li>
-                                        <li class="footer-links__item"><a href="contact-us" class="footer-links__link">Contact Us</a></li>
+                                        <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>
                                     </ul>
                                 </div>
                             </div>                            
@@ -424,7 +426,7 @@
                                     </div>
                                     <form action="" class="footer-newsletter__form">
                                         <label class="sr-only" for="footer-newsletter-address">Email Address</label>
-                                        <input type="text" class="footer-newsletter__form-input form-control" id="footer-newsletter-address" placeholder="Email Address...">
+                                        <input type="text" class="footer-newsletter__form-input form-control" id="footer-newsletter-address" placeholder="Email Address..." required />
                                         <button class="footer-newsletter__form-button btn btn-primary">Subscribe</button>
                                     </form>
                                     <div class="footer-newsletter__text footer-newsletter__text--social">

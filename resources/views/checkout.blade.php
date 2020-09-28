@@ -212,6 +212,7 @@
 </div>
 <script>
 function updateShipping(region){
+    document.getElementById('totalValueSpan').innerHTML = '<span>Loading...</span>';
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("progress", updateProgress);
     xhr.addEventListener("load", transferComplete);
@@ -233,7 +234,7 @@ function updateShipping(region){
 
     xhr.onreadystatechange = function() { // Call a function when the state changes.
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            console.log(this.responseText);
+            // console.log(this.responseText);
             var cartValues = JSON.parse(this.responseText);
             document.getElementById('totalValueSpan').innerHTML = cartValues.cartTotal;
             document.getElementById('shippingValueSpan').innerHTML = cartValues.shippingCharge;
@@ -244,7 +245,6 @@ function updateShipping(region){
 function updateProgress (oEvent) {
   if (oEvent.lengthComputable) {
     var percentComplete = oEvent.loaded / oEvent.total * 100;
-    console.log(percentComplete);
     // ...
   } else {
     // Unable to compute progress information since the total size is unknown

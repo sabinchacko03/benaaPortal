@@ -63,16 +63,18 @@
                     </svg>
                 </div>
                 <div class="block-features__content">
-                    <div class="block-features__title">Fast Delivery</div>
+                    <div class="block-features__title">Delivery</div>
                     <div class="block-features__subtitle">Within 3 working days</div>
                 </div>
             </div>
             <div class="block-features__divider"></div>
             <div class="block-features__item">
                 <div class="block-features__icon">
-                    <svg width="48px" height="48px">
-                    <use xlink:href="{{asset('public/images/sprite.svg#fi-24-hours-48')}}"></use>
-                    </svg>
+                    <a href="{{URL::to('/contact-us')}}">
+                        <svg width="48px" height="48px">
+                        <use xlink:href="{{asset('public/images/sprite.svg#fi-24-hours-48')}}"></use>
+                        </svg>
+                    </a>
                 </div>
                 <div class="block-features__content">
                     <div class="block-features__title">Support 24/7</div>
