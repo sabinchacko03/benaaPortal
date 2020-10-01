@@ -29,4 +29,6 @@ Route::get('api/updateshipping', 'CategoryController@updateShipping');
 Route::get('shop', 'CategoryController@shop');
 Route::view('contact-us', 'contact-us');
 Route::view('about-us', 'about-us');
+Route::view('fast-track', 'fast-track');
+Route::get('ajax-search', 'HomeController@ajaxSearch');
 // Route::post('api/updateshipping', 'CategoryController@updateShipping');

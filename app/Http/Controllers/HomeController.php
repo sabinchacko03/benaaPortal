@@ -14,7 +14,7 @@ class HomeController extends Controller {
 
     public function search(Request $request, $page = 1) {
         $key = $request->input('searchKey');
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/search', [
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/search', [
             'key' => $key,
         ]);
         $result = $response->json();
@@ -31,5 +31,16 @@ class HomeController extends Controller {
             $paginator = array();
             return view('searchResult', ['results' => $paginator, 'key' => $key]);
         }        
+    }
+
+    public function ajaxSearch(Request $request){
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/search', [
+            'key' => $request->key,
+        ]);
+        if(count($response['data'])){
+            $subCategoryName = $response['data'][0]['Product2']['Portal_Subcategory__r']['Name'];
+            $CategoryName = $response['data'][0]['Product2']['Portal_Category__r']['Name'];
+        }        
+        return view('search-suggestions', ['result' => array_slice($response['data'], 0, 5), 'category' => $CategoryName, 'subCategory' => $subCategoryName,]);
     }
 }

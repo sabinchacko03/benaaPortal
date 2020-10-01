@@ -6,6 +6,7 @@
         <meta name="format-detection" content="telephone=no">
         <title>@yield('title')</title>
         <link rel="icon" type="image/png" href="{{asset('public/images/favicon.png')}}">
+        <link rel="apple-touch-icon" href="{{asset('public/images/apple-touch-icon.png')}}">
         <!-- fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
         <!-- css -->
@@ -19,6 +20,7 @@
         <link rel="stylesheet" href="{{asset('public/vendor/fontawesome/css/all.min.css')}}">
         <!-- font - stroyka -->
         <link rel="stylesheet" href="{{asset('public/fonts/stroyka/stroyka.css')}}">
+        <script>BaseUrl = "{{URL('/')}}";</script>
     </head>
     <body>
     <!-- site -->
@@ -37,7 +39,7 @@
                             </button>
                             <a class="mobile-header__logo" href="<?= URL::to('/') ?>">
                                 <!-- mobile-logo -->
-                                <img src="{{asset('public/images/Benaa_Logo.png')}}" alt="800Benaa" />
+                                <img src="{{asset('public/images/Benaa_Logo_mobile.png')}}" alt="800Benaa" />
                                 <!-- mobile-logo / end -->
                             </a>
                             <div class="search search--location--mobile-header mobile-header__search">
@@ -493,7 +495,7 @@
     <!-- site / end -->
     <!-- quickview-modal -->
     <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content"></div>
         </div>
     </div>
@@ -526,87 +528,8 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="mobile-links__item-sub-links" data-collapse-content>
-                            <ul class="mobile-links mobile-links--level--1">
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">Power Tools</a>
-                                        <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                            <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                                <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="mobile-links__item-sub-links" data-collapse-content>
-                                        <ul class="mobile-links mobile-links--level--2">
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Engravers</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Wrenches</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Wall Chaser</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Pneumatic Tools</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="mobile-links__item" data-collapse-item>
-                                    <div class="mobile-links__item-title">
-                                        <a href="" class="mobile-links__item-link">Machine Tools</a>
-                                        <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                            <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                                <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="mobile-links__item-sub-links" data-collapse-content>
-                                        <ul class="mobile-links mobile-links--level--2">
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Thread Cutting</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Chip Blowers</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Sharpening Machines</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Pipe Cutters</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Slotting machines</a>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-links__item" data-collapse-item>
-                                                <div class="mobile-links__item-title">
-                                                    <a href="" class="mobile-links__item-link">Lathes</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="mobile-links__item-sub-links" data-collapse-content id="categoryMobile">
+                            
                         </div>
                     </li>
                     <li class="mobile-links__item" data-collapse-item>
@@ -688,6 +611,7 @@
                 var homeUrl = "{{URL::to('/')}}";
                 var categories = JSON.parse(xhr.responseText);
                 var menuString = '<div class="row">';
+                var mobileMenuString = '<ul class="mobile-links mobile-links--level--1">';
                 for (i = 0; i < categories.length; i++) {
                     if(i%2 == 0){
                         menuString += '<div class="col-4"> <ul class="megamenu__links megamenu__links--level--0">';
@@ -697,21 +621,50 @@
 					menuString += '<a style="text-transform: capitalize;" href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'">' + categories[i].Name.toLowerCase() +'</a>';
 					menuString += '<ul class="megamenu__links megamenu__links--level--1">';
 					// menuString += '<li class="megamenu__item"><a href="">Engravers</a></li>';
-					// menuString += '<li class="megamenu__item"><a href="">Wrenches</a></li>';
-				    // menuString += '<li class="megamenu__item"><a href="">Wall Chaser</a></li>';
-					// menuString += '<li class="megamenu__item"><a href="">Pneumatic Tools</a></li>';
                     menuString += '</ul></li>';
                     if(i%2 == 1){
                         menuString += '</ul></div>';
                     }
+                    mobileMenuString += '<li class="mobile-links__item" data-collapse-item><div class="mobile-links__item-title">';
+                    mobileMenuString += '<a href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'" class="mobile-links__item-link">' + categories[i].Name.toLowerCase() + '</a></div></li>'
+
                 }
                 menuString += '</ul></div>';
                 document.getElementById('categoryTopMenu').innerHTML = menuString;
+                document.getElementById('categoryMobile').innerHTML = mobileMenuString;
             }
         };
         xhr.open('GET', '{{URL::to('/')}}/api/categories');
         xhr.send();
+// to show fast track form popup in the home page
+        const modal = $('#quickview-modal');
+        const timeout = setTimeout(function() {
+            res = $.ajax({
+                url: '{{URL("fast-track")}}',
+                success: function(data) {
+                    modal.find('.modal-content').html(data);
+                    if ( window.location.pathname == '/' || window.location.pathname == '/benaa-portal/' ){
+                        modal.modal('show');
+                    }
+                    modal.find('.quickview__close').on('click', function() {
+                        modal.modal('hide');
+                    });
+                }
+            });
+        }, 1000);
+// fast track form submission
+        $('#fast-track-form').submit(function(){
+            event.preventDefault();
+            xhr = $.ajax({
+                url: '{{URL("fast-track")}}',
+                success: function(data) {
+                    modal.find('.modal-content').html(data);
+                    if ( window.location.pathname == '/' || window.location.pathname == '/benaa-portal/' ){
+                        modal.modal('show');
+                    }
+                }
+            });
+        });
     </script>
 </body>
-
 </html>

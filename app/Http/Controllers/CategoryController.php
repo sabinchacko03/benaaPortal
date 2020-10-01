@@ -11,7 +11,7 @@ use PDF;
 class CategoryController extends Controller {
 
     public function getCategories() {
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/categories', [
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/categories', [
                     '' => ''
         ]);
         $result = $response->json();
@@ -19,14 +19,14 @@ class CategoryController extends Controller {
     }
 
     public function showSubcategories(Request $request, $category) {
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/subcategories', [
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/subcategories', [
                     'categoryId' => $category
         ]);
         $result = $response->json();
         if(!count($result['data'])){
 
             //call the subcategory API with the category name, to get the products
-            $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/fetchProducts', [
+            $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/fetchProducts', [
                     'subcategoryId' => $category
             ]);
             $result = $response->json();        
@@ -48,7 +48,7 @@ class CategoryController extends Controller {
     
     public function showSubcategoryProducts(Request $request, $category, $subCategory) {
         $subcategoryString = $category .'#'. $subCategory;
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/fetchProducts', [
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/fetchProducts', [
                     'subcategoryId' => $subcategoryString
         ]);
         $result = $response->json();
@@ -66,8 +66,10 @@ class CategoryController extends Controller {
     
     public function showProductDetails($category, $subCategory, $product){
         $productString = $category . '#'. $subCategory .'#'. $product;
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/productDetail', [
-                    'pricebookEntryId' => $productString
+        // dd(str_replace('-',' ', $category. ' '. $subCategory.' '. $product));
+        // $productString = urlencode($productString);
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/productDetail', [
+                    'pricebookEntryId' => urlencode(str_replace('-',' ', $productString))
         ]);
         $result = $response->json();
         
@@ -75,7 +77,7 @@ class CategoryController extends Controller {
     }
 
     public function shop(){
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/categories', [
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/categories', [
                     '' => ''
         ]);
         $result = $response->json();
@@ -115,7 +117,7 @@ class CategoryController extends Controller {
     }
 
     public function checkout(Request $request){
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/regions', [
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/regions', [
             '' => ''
         ]);
         $regions = $response->json();
@@ -136,7 +138,7 @@ class CategoryController extends Controller {
                 $shippingInfo["entries"][] = $temp;
             }
             $postArray['shippingInfo'] = $shippingInfo;
-            $response = Http::withBody(json_encode($postArray), 'application/json')->post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/shippingcharges');
+            $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/shippingcharges');
             $result = $response->json();
             $shippingCharge = $result['data'];
             session(['shippingCharge' => $shippingCharge]);
@@ -185,7 +187,7 @@ class CategoryController extends Controller {
             $info['orderInfo'] = $orderInfo;
             $postArray['checkoutInfo'] = $info;
 
-            $response = Http::withBody(json_encode($postArray), 'application/json')->post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/placeorder');
+            $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
             $result = $response->json();
             if($result['success'] == true){
                 session()->flush();
@@ -216,7 +218,7 @@ class CategoryController extends Controller {
     }
 
     public function getRegions(){
-        $response = Http::post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/regions', [
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/regions', [
             '' => ''
         ]);
         $result = $response->json();
@@ -233,7 +235,7 @@ class CategoryController extends Controller {
             $shippingInfo["entries"][] = $temp;
         }
         $postArray['shippingInfo'] = $shippingInfo;
-        $response = Http::withBody(json_encode($postArray), 'application/json')->post('https://dev-ducon.cs100.force.com/services/apexrest/DuconSiteFactory/shippingcharges');
+        $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/shippingcharges');
         $result = $response->json();
         $shippingCharge = $result['data'];
         session(['shippingCharge' => $shippingCharge]);

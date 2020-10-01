@@ -11,7 +11,18 @@
             <!--<div class="col-lg-3 d-none d-lg-block"></div>-->
             <div class="col-12">
                 <div class="block-slideshow__body">
-                    <div class="owl-carousel">                        
+                    <div class="owl-carousel">  
+                        <a class="block-slideshow__slide" href="product/hand-&-power-tools">
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1-mob.jpg')}}')"></div>
+                            <div class="block-slideshow__slide-content">
+                                <div class="block-slideshow__slide-title">Hand Tool Collections</div>
+                                <div class="block-slideshow__slide-text">Superior Quality Hand Tools For All Purposes</div>
+                                <div class="block-slideshow__slide-button">
+                                    <span class="btn btn-primary btn-lg">Shop Now</span>
+                                </div>
+                            </div>
+                        </a>                      
                         <a class="block-slideshow__slide" href="product/hand-&-power-tools">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2-mob.jpg')}}')"></div>
@@ -34,17 +45,6 @@
                                 </div>
                             </div>
                         </a>                        
-                        <a class="block-slideshow__slide" href="product/hand-&-power-tools">
-                            <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1.jpg')}}')"></div>
-                            <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1-mob.jpg')}}')"></div>
-                            <div class="block-slideshow__slide-content">
-                                <div class="block-slideshow__slide-title">Hand Tool Collections</div>
-                                <div class="block-slideshow__slide-text">Superior Quality Hand Tools For All Purposes</div>
-                                <div class="block-slideshow__slide-button">
-                                    <span class="btn btn-primary btn-lg">Shop Now</span>
-                                </div>
-                            </div>
-                        </a>
                     </div>
                 </div>
             </div>

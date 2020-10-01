@@ -33,7 +33,7 @@ class Department extends React.Component {
                                         <a className="departments__item-link" href="">
                                             Power Tools
                                             <svg className="departments__item-arrow" width="6px" height="9px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                                <use xlinkHref="images/sprite.svg#arrow-rounded-right-6x9"></use>
                                             </svg>
                                         </a>
                                         <div className="departments__submenu departments__submenu--type--megamenu departments__submenu--size--xl">
@@ -68,7 +68,7 @@ class Department extends React.Component {
                     </div>
                         )
                    )                    
-                );
+            );
     }
 }
 
